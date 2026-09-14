@@ -1,0 +1,2050 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายงานผลการปฏิบัติงานตามข้อตกลงในการพัฒนางาน (PA) 2569</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Prompt (Light, Modern, Rounded) -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons (White/Thin Icons) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        paPrimary: '#48CAD9',
+                        paSecondary: '#C4EEF2',
+                        paAccent1: '#D7D63E',
+                        paAccent2: '#DA329F',
+                        paBg: '#F4E2DE',
+                        paDark: '#1a202c',
+                    },
+                    fontFamily: {
+                        sans: ['Prompt', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                        'glow': '0 0 15px rgba(72, 202, 217, 0.5)',
+                        'glow-accent': '0 0 15px rgba(218, 50, 159, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F4E2DE;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(186,63%,56%,0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(322,70%,52%,0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, hsla(60,67%,54%,0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(186,63%,56%,0.1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #333;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F4E2DE;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #48CAD9;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #DA329F;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.90);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #48CAD9, #DA329F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(0,0,0,0.12);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #DA329F;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+        }
+        th {
+            background-color: #48CAD9;
+            color: white;
+            font-weight: 500;
+            text-align: left;
+            padding: 1.25rem 1rem;
+        }
+        th:first-child { border-top-left-radius: 0.75rem; }
+        th:last-child { border-top-right-radius: 0.75rem; }
+        td {
+            padding: 1.25rem 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background-color: rgba(196, 238, 242, 0.15); }
+
+        /* Disable body scroll when modal is open */
+        body.modal-open {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-paAccent2 selection:text-white font-light text-gray-700">
+
+    <nav class="fixed w-full z-40 glass-card transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-br from-paPrimary to-paAccent2 p-2 rounded-xl text-white shadow-glow">
+                        <i class="ph ph-file-text text-3xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-medium text-xl text-paDark tracking-tight block">PA Report 2569</span>
+                        <span class="text-xs text-gray-500 font-light">นายนิติพงศ์ คงทอง</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#profile" class="nav-link text-gray-600 font-medium hover:text-paAccent2">ข้อมูลส่วนตัว</a>
+                    <a href="#part1" class="nav-link text-gray-600 font-medium hover:text-paAccent2">ส่วนที่ 1</a>
+                    <a href="#part2" class="nav-link text-gray-600 font-medium hover:text-paAccent2">ส่วนที่ 2 (ประเด็นท้าทาย)</a>
+                    <a href="#conclusion" class="nav-link text-gray-600 font-medium hover:text-paAccent2">สรุปผล</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-paAccent2 focus:outline-none">
+                        <i class="ph ph-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#profile" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-paAccent2 hover:bg-paSecondary/20">ข้อมูลส่วนตัว</a>
+                <a href="#part1" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-paAccent2 hover:bg-paSecondary/20">ส่วนที่ 1</a>
+                <a href="#part2" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-paAccent2 hover:bg-paSecondary/20">ส่วนที่ 2 (ประเด็นท้าทาย)</a>
+                <a href="#conclusion" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-paAccent2 hover:bg-paSecondary/20">สรุปผล</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div data-aos="fade-down" data-aos-duration="1000" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-paSecondary/50 text-sm font-medium text-paPrimary mb-6 shadow-sm">
+                <i class="ph-light ph-calendar-check text-lg"></i>
+                ประจำปีงบประมาณ พ.ศ. 2569 (ระหว่างวันที่ 17 เดือนกรกฎาคม พ.ศ. 2569 ถึงวันที่ 30 เดือนกันยายน พ.ศ. 2569)
+            </div>
+            
+            <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="text-4xl md:text-5xl lg:text-6xl font-medium text-gray-900 leading-tight mb-6">
+                รายงานผลการปฏิบัติงาน<br>
+                <span class="gradient-text">ตามข้อตกลงในการพัฒนางาน (PA)</span>
+            </h1>
+            
+            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto font-light">
+                สำหรับข้าราชการครูและบุคลากรทางการศึกษา ตำแหน่ง ครู (ยังไม่มีวิทยฐานะ) โรงเรียนทรัพย์ทวี
+            </p>
+
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600" class="mt-10 flex justify-center gap-4">
+                <a href="#profile" class="px-8 py-4 bg-paPrimary hover:bg-[#3bb5c3] text-white rounded-full font-medium shadow-glow transition-all duration-300 flex items-center gap-2 hover:-translate-y-1">
+                    <i class="ph ph-user"></i> ข้อมูลผู้จัดทำ
+                </a>
+                <a href="#part1" class="px-8 py-4 bg-white hover:bg-gray-50 text-paDark rounded-full font-medium shadow-soft border border-gray-100 transition-all duration-300 flex items-center gap-2 hover:-translate-y-1">
+                    เริ่มอ่านรายงาน <i class="ph ph-arrow-down text-paAccent2"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="absolute top-1/2 left-10 w-64 h-64 bg-paSecondary rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+        <div class="absolute top-1/2 right-10 w-64 h-64 bg-paBg rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-1/2 w-64 h-64 bg-paAccent1 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <section id="profile" class="scroll-mt-32 mb-24" data-aos="fade-up">
+            <div class="glass-card rounded-3xl p-8 md:p-12 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-paPrimary to-transparent opacity-20 rounded-bl-full"></div>
+                
+                <div class="flex flex-col md:flex-row gap-10 items-center md:items-start">
+                    <!-- รูปโปรไฟล์ Google Drive Thumbnail -->
+                    <div class="w-48 h-48 rounded-full border-4 border-white shadow-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-paSecondary to-paBg flex items-center justify-center relative group">
+                        <img src="https://drive.google.com/uc?id=ใส่_ID_ภาพโปรไฟล์_ที่นี่" alt="Profile" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-paPrimary/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                    </div>
+                    
+                    <div class="flex-1 w-full">
+                        <div class="inline-block px-3 py-1 bg-paSecondary/50 text-paPrimary font-medium rounded-full text-sm mb-4">
+                            ผู้จัดทำข้อตกลง
+                        </div>
+                        <h2 class="text-3xl font-medium text-gray-900 mb-2">นายนิติพงศ์ คงทอง</h2>
+                        <p class="text-xl text-paAccent2 font-medium mb-6">ตำแหน่ง ครู (ยังไม่มีวิทยฐานะ)</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="flex items-center gap-4 bg-white/60 p-4 rounded-xl border border-white">
+                                <div class="w-12 h-12 rounded-full bg-paPrimary flex items-center justify-center text-white shadow-md">
+                                    <i class="ph-light ph-buildings text-2xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500 font-light">สถานศึกษา</p>
+                                    <p class="font-medium text-gray-800">โรงเรียนทรัพย์ทวี</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4 bg-white/60 p-4 rounded-xl border border-white">
+                                <div class="w-12 h-12 rounded-full bg-paAccent2 flex items-center justify-center text-white shadow-md">
+                                    <i class="ph-light ph-map-pin text-2xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500 font-light">สังกัด</p>
+                                    <p class="font-medium text-gray-800 text-sm">สพป.สุราษฎร์ธานี เขต 3</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4 bg-white/60 p-4 rounded-xl border border-white">
+                                <div class="w-12 h-12 rounded-full bg-paAccent1 flex items-center justify-center text-white shadow-md">
+                                    <i class="ph-light ph-money text-2xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500 font-light">รับเงินเดือนในอันดับ</p>
+                                    <p class="font-medium text-gray-800">คศ. 1 (21,860 บาท)</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4 bg-white/60 p-4 rounded-xl border border-white">
+                                <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-white shadow-md">
+                                    <i class="ph-light ph-chalkboard-teacher text-2xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500 font-light">ประเภทห้องเรียน</p>
+                                    <p class="font-medium text-gray-800">ห้องเรียนวิชาสามัญหรือวิชาพื้นฐาน</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 p-6 bg-paSecondary/30 rounded-2xl border border-paSecondary/50 border-l-4 border-l-paPrimary">
+                            <p class="text-gray-700 italic font-light leading-relaxed">
+                                "ข้าพเจ้าได้แสดงเจตจำนงในการจัดทำข้อตกลงในการพัฒนางาน ตำแหน่งครู (ยังไม่มีวิทยฐานะ) ซึ่งเป็นตำแหน่งที่ดำรงอยู่ในปัจจุบันกับผู้อำนวยการสถานศึกษา ไว้ดังต่อไปนี้"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-24" data-aos="fade-up">
+            <h2 class="text-3xl font-medium text-gray-900 mb-8 flex items-center gap-3">
+                <span class="w-10 h-10 rounded-lg bg-paAccent1 flex items-center justify-center text-white">
+                    <i class="ph-light ph-clock"></i>
+                </span>
+                ภาระงาน
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Box 1 -->
+                <div class="glass-card rounded-2xl p-6 hover-lift border-t-4 border-t-paPrimary">
+                    <h3 class="text-xl font-medium text-paPrimary mb-4 flex justify-between border-b pb-2">
+                        <span>1.1 ชั่วโมงสอนตามตารางสอน</span>
+                        <span class="bg-paPrimary text-white text-sm px-3 py-1 rounded-full font-light">19 ชม./สัปดาห์</span>
+                    </h3>
+                    <ul class="space-y-3 font-light">
+                        <li class="flex justify-between items-center bg-white/60 p-3 rounded-lg">
+                            <span class="flex items-center gap-2"><i class="ph-light ph-math-operations text-paPrimary text-lg"></i> คณิตศาสตร์</span>
+                            <span class="font-medium">10 ชม.</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-white/60 p-3 rounded-lg">
+                            <span class="flex items-center gap-2"><i class="ph-light ph-flask text-paAccent2 text-lg"></i> วิทยาศาสตร์และเทคโนโลยี</span>
+                            <span class="font-medium">6 ชม.</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-white/60 p-3 rounded-lg">
+                            <span class="flex items-center gap-2"><i class="ph-light ph-users-three text-gray-500 text-lg"></i> กิจกรรมชุมนุม</span>
+                            <span class="font-medium">1 ชม.</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-white/60 p-3 rounded-lg">
+                            <span class="flex items-center gap-2"><i class="ph-light ph-tent text-green-600 text-lg"></i> ลูกเสือเนตรนารี</span>
+                            <span class="font-medium">1 ชม.</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-white/60 p-3 rounded-lg">
+                            <span class="flex items-center gap-2"><i class="ph-light ph-compass text-purple-500 text-lg"></i> กิจกรรมแนะแนว</span>
+                            <span class="font-medium">1 ชม.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Box 2 -->
+                <div class="glass-card rounded-2xl p-6 hover-lift border-t-4 border-t-paAccent2">
+                    <h3 class="text-xl font-medium text-paAccent2 mb-4 flex justify-between border-b pb-2">
+                        <span>1.2 งานส่งเสริมและสนับสนุนฯ</span>
+                        <span class="bg-paAccent2 text-white text-sm px-3 py-1 rounded-full font-light">10 ชม./สัปดาห์</span>
+                    </h3>
+                    <ul class="space-y-3 font-light">
+                        <li class="flex justify-between items-center bg-white/60 p-3 rounded-lg">
+                            <span class="flex items-center gap-2"><i class="ph-light ph-magnifying-glass text-paAccent2 text-lg"></i> วิจัยในชั้นเรียน</span>
+                            <span class="font-medium">1 ชม.</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-white/60 p-3 rounded-lg">
+                            <span class="flex items-center gap-2"><i class="ph-light ph-heart text-red-400 text-lg"></i> โฮมรูมและส่งเสริมคุณธรรม</span>
+                            <span class="font-medium">2 ชม.</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-white/60 p-3 rounded-lg">
+                            <span class="flex items-center gap-2"><i class="ph-light ph-monitor-play text-blue-500 text-lg"></i> พัฒนาสื่อการเรียนการสอน</span>
+                            <span class="font-medium">2 ชม.</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-white/60 p-3 rounded-lg">
+                            <span class="flex items-center gap-2"><i class="ph-light ph-chats-circle text-orange-400 text-lg"></i> PLC</span>
+                            <span class="font-medium">5 ชม.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Box 3 -->
+                <div class="glass-card rounded-2xl p-6 hover-lift border-t-4 border-t-paAccent1">
+                    <h3 class="text-xl font-medium text-gray-800 mb-4 flex justify-between border-b pb-2">
+                        <span>1.3 งานพัฒนาคุณภาพการศึกษา</span>
+                        <span class="bg-paAccent1 text-white text-sm px-3 py-1 rounded-full font-light">2 ชม./สัปดาห์</span>
+                    </h3>
+                    <ul class="space-y-3 font-light">
+                        <li class="flex justify-between items-center bg-white/60 p-3 rounded-lg">
+                            <span class="flex items-center gap-2"><i class="ph-light ph-chalkboard text-gray-600 text-lg"></i> นิเทศภายในสถานศึกษา</span>
+                            <span class="font-medium">1 ชม.</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-white/60 p-3 rounded-lg">
+                            <span class="flex items-center gap-2"><i class="ph-light ph-speaker-hifi text-gray-600 text-lg"></i> งานโสตทัศนูปกรณ์</span>
+                            <span class="font-medium">1 ชม.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Box 4 -->
+                <div class="glass-card rounded-2xl p-6 hover-lift border-t-4 border-t-gray-800">
+                    <h3 class="text-xl font-medium text-gray-800 mb-4 flex justify-between border-b pb-2">
+                        <span>1.4 งานตอบสนองนโยบายฯ</span>
+                        <span class="bg-gray-800 text-white text-sm px-3 py-1 rounded-full font-light">6 ชม./สัปดาห์</span>
+                    </h3>
+                    <ul class="space-y-3 font-light">
+                        <li class="flex justify-between items-center bg-white/60 p-3 rounded-lg">
+                            <span class="flex items-center gap-2 text-sm"><i class="ph-light ph-atom text-blue-400 text-lg"></i> โครงการบ้านนักวิทยาศาสตร์น้อยฯ</span>
+                            <span class="font-medium">1 ชม.</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-white/60 p-3 rounded-lg">
+                            <span class="flex items-center gap-2 text-sm"><i class="ph-light ph-satellite-dish text-gray-500 text-lg"></i> ส่งเสริมการศึกษาทางไกลผ่านดาวเทียม</span>
+                            <span class="font-medium">5 ชม.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="part1" class="scroll-mt-32 mb-24">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-sm font-medium tracking-widest text-paAccent2 uppercase mb-2">ส่วนที่ 1</h2>
+                <h3 class="text-3xl md:text-4xl font-medium text-gray-900">ข้อตกลงในการพัฒนางานตามมาตรฐานตำแหน่ง</h3>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto font-light">ผลการปฏิบัติงานตามข้อตกลงในการพัฒนางาน (PA)</p>
+            </div>
+
+            <!-- Domain 1 -->
+            <div class="mb-16" data-aos="fade-up">
+                <div class="bg-gradient-to-r from-paPrimary to-[#3bb5c3] rounded-t-2xl p-6 text-white shadow-lg">
+                    <h4 class="text-2xl font-medium flex items-center gap-3">
+                        <i class="ph-light ph-chalkboard-teacher text-3xl"></i>
+                        1. ด้านการจัดการเรียนรู้
+                    </h4>
+                </div>
+                
+                <div class="glass-card rounded-b-2xl p-1 overflow-x-auto shadow-soft">
+                    <table class="min-w-[1000px] w-full bg-white rounded-xl overflow-hidden">
+                        <thead>
+                            <tr>
+                                <th class="w-1/4 font-medium">ลักษณะงานที่ปฏิบัติ / งาน (Tasks)</th>
+                                <th class="w-1/4 font-medium">ผลลัพธ์ (Outcomes)</th>
+                                <th class="w-1/4 font-medium">ตัวชี้วัด (Indicators)</th>
+                                <th class="w-1/4 font-medium">ผลที่เกิดขึ้นตามข้อตกลงฯ</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm text-gray-700 font-light">
+                            <!-- Task 1.1 -->
+                            <tr class="hover:bg-paSecondary/10 transition-colors">
+                                <td>
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div class="font-medium text-gray-900 text-base">1. การสร้างและหรือพัฒนาหลักสูตร</div>
+                                        <button onclick="openEvidenceModal(['ใส่_ID_ภาพที่1', 'ใส่_ID_ภาพที่2'])" title="ดูรูปภาพหลักฐาน" class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-paSecondary/40 text-paPrimary hover:bg-paPrimary hover:text-white transition-all shadow-sm group">
+                                            <i class="ph ph-image text-lg group-hover:scale-110 transition-transform"></i>
+                                            <span class="text-xs font-medium">หลักฐาน</span>
+                                        </button>
+                                    </div>
+                                    <p class="leading-relaxed">จัดทำหลักสูตรรายวิชา(Subject Curriculum)กลุ่มสาระการเรียนรู้คณิตศาสตร์ ชั้นประถมศึกษาปีที่ 2 โดยการวิเคราะห์หลักสูตร มาตรฐานการเรียนรู้ ตัวชี้วัด และปรับประยุกต์ให้สอดคล้องกับบริบทของสถานศึกษา ผู้เรียน และท้องถิ่น</p>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paPrimary mt-0.5 shrink-0 text-lg"></i>
+                                            <span>มีหลักสูตรรายวิชากลุ่มสาระการเรียนรู้คณิตศาสตร์ชั้นประถมศึกษาปีที่ 2 ที่สอดคล้องกับบริบทของสถานศึกษา ผู้เรียน และท้องถิ่น</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paPrimary mt-0.5 shrink-0 text-lg"></i>
+                                            <span>นักเรียนชั้นประถมศึกษาปีที่ 2 มีผลสัมฤทธิ์ทางการเรียนกลุ่มสาระฯ คณิตศาสตร์ เป็นไปตามค่าเป้าหมายตัวชี้วัดกำหนด</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>หลักสูตรรายวิชากลุ่มสาระการเรียนรู้คณิตศาสตร์ชั้นประถมศึกษาปีที่ 2ได้ระดับคุณภาพตั้งแต่ระดับ ดี ขึ้นไป</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>นักเรียนชั้นประถมศึกษาปีที่ 2 มีผลสัมฤทธิ์ทางการเรียนกลุ่มสาระการเรียนรู้คณิตศาสตร์ สูงกว่าค่าเฉลี่ยร้อยละ 67.00 ตามค่าเป้าหมายที่สถานศึกษากำหนด</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="bg-green-50/20">
+                                    <div class="space-y-4 text-green-900">
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>หลักสูตรรายวิชากลุ่มสาระการเรียนรู้คณิตศาสตร์ ชั้นประถมศึกษาปีที่ 2 อยู่ใน ระดับคุณภาพดีมาก</p>
+                                        </div>
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>นักเรียนชั้นประถมศึกษาปีที่ 2 มีผลสัมฤทธิ์ทางการเรียนกลุ่มสาระการเรียนรู้คณิตศาสตร์ โดยมีค่าเฉลี่ยร้อยละ 74.43 ซึ่งสูงกว่าค่าเป้าหมายที่สถานศึกษากำหนดไว้ที่ค่าเฉลี่ยร้อยละ 67.00 แสดงให้เห็นว่า นักเรียนมีผลสัมฤทธิ์ทางการเรียนสูงกว่าค่าเป้าหมายที่กำหนด ซึ่งปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Task 1.2 -->
+                            <tr class="hover:bg-paSecondary/10 transition-colors">
+                                <td>
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div class="font-medium text-gray-900 text-base">2. ออกแบบการจัดการเรียนรู้</div>
+                                        <button onclick="openEvidenceModal(['ใส่_ID_ภาพที่1', 'ใส่_ID_ภาพที่2'])" title="ดูรูปภาพหลักฐาน" class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-paSecondary/40 text-paPrimary hover:bg-paPrimary hover:text-white transition-all shadow-sm group">
+                                            <i class="ph ph-image text-lg group-hover:scale-110 transition-transform"></i>
+                                            <span class="text-xs font-medium">หลักฐาน</span>
+                                        </button>
+                                    </div>
+                                    <p class="leading-relaxed">พัฒนาหน่วยการเรียนรู้คณิตศาสตร์โดยใช้สถานการณ์ปัญหาในชีวิตประจำวันเป็นฐาน จำนวน ไม่น้อยกว่า 3 หน่วย โดยออกแบบกิจกรรมให้ผู้เรียนได้คิด วิเคราะห์ ลงมือปฏิบัติ และค้นพบวิธีการหรือองค์ความรู้ด้วยตนเอง พัฒนาชุดกิจกรรมการเรียนรู้เพื่อแก้ปัญหาความแตกต่างด้านการเรียนรู้ของผู้เรียน โดยจัดกิจกรรมและภาระงานเป็นระดับตามความสามารถ พร้อมใช้โจทย์หรือสถานการณ์ที่เชื่อมโยงกับความสนใจของผู้เรียนเพื่อสร้างแรงบันดาลใจในการเรียนรู้</p>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paPrimary mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนสามารถคิด วิเคราะห์ แก้ปัญหา และค้นพบองค์ความรู้จากการลงมือปฏิบัติด้วยตนเอง พร้อมนำความรู้ไปประยุกต์ใช้ในสถานการณ์ใกล้ตัว</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paPrimary mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนได้รับการจัดการเรียนรู้ที่ส่งเสริมกระบวนการคิดและแก้ปัญหาตลอดจนเกิดแรงจูงใจและแรงบันดาลใจในการเรียนรู้</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>หน่วยการเรียนรู้ที่พัฒนาขึ้น ไม่น้อยกว่า 3 หน่วย และผู้เรียนร้อยละ 80 มีผลการประเมินความรู้และทักษะหลังเรียนผ่านเกณฑ์ที่กำหนด</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ร้อยละ 80 ของผู้เรียนมีผลการประเมินกระบวนการคิดและการแก้ปัญหาอยู่ในระดับผ่านเกณฑ์ขึ้นไป และมีความพึงพอใจต่อกิจกรรมการเรียนรู้ในระดับมากขึ้นไป</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="bg-green-50/20">
+                                    <div class="space-y-4 text-green-900">
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>พัฒนาหน่วยการเรียนรู้คณิตศาสตร์โดยใช้รูปแบบ/วิธีการ/เทคนิคที่หลากหลาย จำนวน 5 หน่วย และ นักเรียนชั้นประถมศึกษาปีที่ 2 จำนวน 16 คน มีผลการประเมินความรู้และทักษะหลังเรียนผ่านเกณฑ์ จำนวน 14 คนคิดเป็นร้อยละ 87.50 สูงกว่าเกณฑ์ที่กำหนดร้อยละ 80 และ ปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>นักเรียนชั้นประถมศึกษาปีที่ 2 จำนวน 16 คน มีผลการประเมินกระบวนการคิดและการแก้ปัญหาอยู่ในระดับผ่านเกณฑ์ขึ้นไป จำนวน 13 คน คิดเป็นร้อยละ 81.25 และมีความพึงพอใจต่อกิจกรรมการเรียนรู้ในระดับมากขึ้นไป จำนวน 16 คน คิดเป็นร้อยละ 100 สูงกว่าเกณฑ์ที่กำหนดร้อยละ 80 และ ปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Task 1.3 -->
+                            <tr class="hover:bg-paSecondary/10 transition-colors">
+                                <td>
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div class="font-medium text-gray-900 text-base">3. การจัดกิจกรรมการเรียนรู้</div>
+                                        <button onclick="openEvidenceModal(['ใส่_ID_ภาพที่1', 'ใส่_ID_ภาพที่2'])" title="ดูรูปภาพหลักฐาน" class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-paSecondary/40 text-paPrimary hover:bg-paPrimary hover:text-white transition-all shadow-sm group">
+                                            <i class="ph ph-image text-lg group-hover:scale-110 transition-transform"></i>
+                                            <span class="text-xs font-medium">หลักฐาน</span>
+                                        </button>
+                                    </div>
+                                    <p class="leading-relaxed">จัดกิจกรรมการเรียนรู้โดยบูรณาการสมรรถนะสำคัญของผู้เรียนทั้ง 5 ด้าน ได้แก่ ความสามารถในการสื่อสาร การคิด การแก้ปัญหา การใช้ทักษะชีวิต และการใช้เทคโนโลยี โดยกำหนดพฤติกรรมที่แสดงถึงสมรรถนะแต่ละด้านให้ผู้เรียนได้ปฏิบัติและแสดงออกอย่างต่อเนื่องในทุกคาบเรียน</p>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paPrimary mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนได้รับการประเมินสมรรถนะสำคัญทั้ง 5 ด้านจากการจัดกิจกรรมการเรียนรู้ในหน่วยการเรียนรู้ที่กำหนด</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paPrimary mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนสามารถแสดงพฤติกรรมที่สะท้อนสมรรถนะสำคัญทั้ง 5 ด้านได้เหมาะสมตามระดับชั้น</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ร้อยละ 80 ของผู้เรียนมีผลการประเมินสมรรถนะสำคัญทั้ง 5 ด้านอยู่ในระดับผ่านเกณฑ์ขึ้นไป</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนมีผลการประเมินสมรรถนะสำคัญทั้ง 5 ด้านโดยรวมอยู่ในระดับ ตั้งแต่ ดี ขึ้นไป</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="bg-green-50/20">
+                                    <div class="space-y-4 text-green-900">
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>นักเรียนชั้นประถมศึกษาปีที่ 2 จำนวน 16 คน มีผลการประเมินสมรรถนะสำคัญ รายวิชาวิทยาศาสตร์และเทคโนโลยี หน่วยการเรียนรู้ที่ 2 วัสดุรอบตัวเรา อยู่ในระดับผ่านเกณฑ์ขึ้นไป จำนวน 14 คน คิดเป็นร้อยละ  87.50 และ ปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>นักเรียนชั้นประถมศึกษาปีที่ 2 มีผลการประเมินสมรรถนะโดยรวมอยู่ในระดับ ดี และปฏิบัติได้ตามระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้ตามระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                             <!-- Task 1.4 -->
+                             <tr class="hover:bg-paSecondary/10 transition-colors">
+                                <td>
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div class="font-medium text-gray-900 text-base">4. การสร้างและหรือพัฒนาสื่อ นวัตกรรม เทคโนโลยี และแหล่งเรียนรู้</div>
+                                        <button onclick="openEvidenceModal(['ใส่_ID_ภาพที่1', 'ใส่_ID_ภาพที่2'])" title="ดูรูปภาพหลักฐาน" class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-paSecondary/40 text-paPrimary hover:bg-paPrimary hover:text-white transition-all shadow-sm group">
+                                            <i class="ph ph-image text-lg group-hover:scale-110 transition-transform"></i>
+                                            <span class="text-xs font-medium">หลักฐาน</span>
+                                        </button>
+                                    </div>
+                                    <p class="leading-relaxed">สร้างและพัฒนาสื่อการเรียนรู้สำหรับให้นักเรียนใช้ทบทวนบทเรียนด้วยตนเอง โดยจัดทำสื่อให้สอดคล้องกับเนื้อหาและระดับความสามารถของผู้เรียน พัฒนาแหล่งเรียนรู้ภายในห้องเรียน โดยจัดทำและปรับปรุงมุมป้ายนิเทศ มุมอ่านหนังสือ และมุมนั่งเล่น เพื่อส่งเสริมการเรียนรู้และการใช้เวลาว่างให้เกิดประโยชน์</p>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paPrimary mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนสามารถใช้สื่อที่จัดทำขึ้นเพื่อทบทวนบทเรียนและเรียนรู้ด้วยตนเองได้ตามความสนใจและความสามารถ</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paPrimary mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนมีแหล่งเรียนรู้ภายในห้องเรียนที่หลากหลาย เข้าถึงได้ง่าย และเอื้อต่อการเรียนรู้ การอ่าน และการใช้เวลาว่างอย่างสร้างสรรค์</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ร้อยละ 80 ของผู้เรียนสามารถใช้สื่อสำหรับทบทวนบทเรียนด้วยตนเองได้</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>แหล่งเรียนรู้ภายในห้องเรียนได้รับการจัดทำและพัฒนา ไม่น้อยกว่า 2 แห่ง และมีผลการประเมินความเหมาะสมในระดับดีขึ้นไป</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="bg-green-50/20">
+                                    <div class="space-y-4 text-green-900">
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>นักเรียนชั้นประถมศึกษาปีที่ 2 จำนวน 16 คน สามารถใช้สื่อสำหรับทบทวนบทเรียนและเรียนรู้ด้วยตนเอง จำนวน 15 คน คิดเป็นร้อยละ 93.75 และปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>จัดทำและพัฒนาแหล่งเรียนรู้ภายในห้องเรียน จำนวน 3 แห่ง ได้แก่ มุมป้ายนิเทศ มุมอ่านหนังสือ และมุมนั่งเล่น โดยผลการประเมินความเหมาะสมของแหล่งเรียนรู้อยู่ในระดับ ดีมาก และ ปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Task 1.5 -->
+                            <tr class="hover:bg-paSecondary/10 transition-colors">
+                                <td>
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div class="font-medium text-gray-900 text-base">5. การวัดและประเมินผลการจัด การเรียนรู้</div>
+                                        <button onclick="openEvidenceModal(['ใส่_ID_ภาพที่1', 'ใส่_ID_ภาพที่2'])" title="ดูรูปภาพหลักฐาน" class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-paSecondary/40 text-paPrimary hover:bg-paPrimary hover:text-white transition-all shadow-sm group">
+                                            <i class="ph ph-image text-lg group-hover:scale-110 transition-transform"></i>
+                                            <span class="text-xs font-medium">หลักฐาน</span>
+                                        </button>
+                                    </div>
+                                    <p class="leading-relaxed">สร้างแบบทดสอบหลังเรียนสำหรับการประเมินผลเพื่อสรุปผล (Evaluation) ซึ่งสามารถสะท้อนให้เห็นพฤติกรรมการเรียนรู้ตามทฤษฎีการเรียนรู้ของบลูม (Bloom’s Taxonomy) ดำเนินการวัดและประเมินผลเพื่อพัฒนา (Assessment)โดยใช้เครื่องมือที่เฉพาะเจาะจง และเหมาะสมกับผู้เรียน</p>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paPrimary mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนได้รับการวัดและประเมินผลหลังเรียนด้วยแบบทดสอบที่ครอบคลุมพฤติกรรมการเรียนรู้ตามระดับของ Bloom’s Taxonomy และมีผลการเรียนรู้ตามเกณฑ์ที่กำหนด</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paPrimary mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนได้รับการวัดและประเมินผลเพื่อพัฒนา ด้วยเครื่องมือที่เหมาะสมกับพฤติกรรมการเรียนรู้และความแตกต่างของผู้เรียน ทำให้ครูสามารถนำข้อมูลไปใช้ในการพัฒนาการเรียนรู้ของผู้เรียนได้</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ร้อยละ 100 ของผุ้เรียนได้รับการประเมินผลหลังเรียนครบทุกหน่วยการเรียนรู้ จากแบบทดสอบที่ครอบคลุมพฤติกรรมการเรียนรู้ตาม Bloom’s Taxonomy</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผลการวัดและประเมินผลสะท้อนพฤติกรรมการเรียนรู้ของผู้เรียนได้อย่างเหมาะสม และสามารถนำข้อมูลที่ได้ไปใช้ในการพัฒนาผู้เรียน</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="bg-green-50/20">
+                                    <div class="space-y-4 text-green-900">
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>นักเรียนชั้นประถมศึกษาปีที่ 2 จำนวน 16 คน ได้รับการประเมินผลการเรียนรู้ครบถ้วนทุกหน่วยการเรียนรู้ คิดเป็นร้อยละ 100 และมีข้อมูลผลการเรียนรู้ที่สะท้อนพฤติกรรมการเรียนรู้รายบุคคลสำหรับใช้ในการพัฒนาการเรียนรู้ และปฏิบัติได้ตามระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้ตามระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>ผลการวัดและประเมินผลสามารถสะท้อนพฤติกรรมการเรียนรู้และความแตกต่างของผู้เรียน และนำไปใช้ปรับการจัดการเรียนรู้ให้เหมาะสมกับผู้เรียนได้ และปฏิบัติได้ตามระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้ตามระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Task 1.6 -->
+                            <tr class="hover:bg-paSecondary/10 transition-colors">
+                                <td>
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div class="font-medium text-gray-900 text-base">6. การศึกษา วิเคราะห์ สังเคราะห์ เพื่อแก้ปัญหาหรือพัฒนาการเรียนรู้</div>
+                                        <button onclick="openEvidenceModal(['ใส่_ID_ภาพที่1', 'ใส่_ID_ภาพที่2'])" title="ดูรูปภาพหลักฐาน" class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-paSecondary/40 text-paPrimary hover:bg-paPrimary hover:text-white transition-all shadow-sm group">
+                                            <i class="ph ph-image text-lg group-hover:scale-110 transition-transform"></i>
+                                            <span class="text-xs font-medium">หลักฐาน</span>
+                                        </button>
+                                    </div>
+                                    <p class="leading-relaxed">ดำเนินการวิจัยในชั้นเรียนเพื่อแก้ปัญหาและพัฒนาการเรียนรู้วิทยาศาสตร์ ชั้นประถมศึกษาปีที่ 5 ตั้งแต่การวิเคราะห์ปัญหา การพัฒนาแนวทางแก้ปัญหา การเก็บรวบรวมและวิเคราะห์ข้อมูล จนถึงการนำผลการวิจัยไปใช้</p>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paPrimary mt-0.5 shrink-0 text-lg"></i>
+                                            <span>กลุ่มเป้าหมายได้รับการพัฒนาตามกระบวนการวิจัยในชั้นเรียน และมีผลการเรียนรู้หลังได้รับการพัฒนาสูงขึ้น</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paPrimary mt-0.5 shrink-0 text-lg"></i>
+                                            <span>มีงานวิจัยในชั้นเรียนที่ดำเนินการตามกระบวนการวิจัยและสามารถนำผลไปใช้พัฒนาผู้เรียนได้</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ร้อยละ 60 ของกลุ่มเป้าหมายมีผลการเรียนรู้หลังได้รับการพัฒนาสูงขึ้นอย่างมีนัยสำคัญทางสถิติที่ระดับ .05</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>รายงานการวิจัยในชั้นเรียน จำนวน 1 เรื่อง ผ่านการประเมินคุณภาพในระดับดีขึ้นไป</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="bg-green-50/20">
+                                    <div class="space-y-4 text-green-900">
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>กลุ่มเป้าหมาย ได้แก่ นักเรียนชั้นประถมศึกษาปีที่ 5 จำนวน 13 คน ได้รับการพัฒนาตามกระบวนการวิจัยในชั้นเรียน โดยนักเรียนจำนวน 10 คน คิดเป็นร้อยละ 71.43 มีคะแนนผลการประเมินหลังการพัฒนาสูงกว่าก่อนการพัฒนาอย่างมีนัยสำคัญทางสถิติที่ระดับ .05 และ ปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>จัดทำรายงานการวิจัยในชั้นเรียน จำนวน 1 เรื่อง ที่มีผลการประเมินด้านกระบวนการวิจัย วิธีดำเนินการวิจัย การวิเคราะห์และสรุปผล และการนำผลการวิจัยไปใช้ผ่านเกณฑ์ที่กำหนด โดยผลการประเมินคุณภาพงานวิจัยอยู่ในระดับดีมาก และ ปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Task 1.7 -->
+                            <tr class="hover:bg-paSecondary/10 transition-colors">
+                                <td>
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div class="font-medium text-gray-900 text-base">7. การจัดบรรยากาศที่ส่งเสริม และพัฒนาผู้เรียน</div>
+                                        <button onclick="openEvidenceModal(['ใส่_ID_ภาพที่1', 'ใส่_ID_ภาพที่2'])" title="ดูรูปภาพหลักฐาน" class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-paSecondary/40 text-paPrimary hover:bg-paPrimary hover:text-white transition-all shadow-sm group">
+                                            <i class="ph ph-image text-lg group-hover:scale-110 transition-transform"></i>
+                                            <span class="text-xs font-medium">หลักฐาน</span>
+                                        </button>
+                                    </div>
+                                    <p class="leading-relaxed">จัดและพัฒนาชั้นเรียนคุณภาพ โดยปรับสภาพแวดล้อมและบรรยากาศในชั้นเรียนให้เอื้อต่อการเรียนรู้ จัดพื้นที่และมุมการเรียนรู้ที่เหมาะสม เปิดโอกาสให้ผู้เรียนมีส่วนร่วม คิด แลกเปลี่ยนเรียนรู้ ทำงานร่วมกัน และใช้สื่อ เทคโนโลยี และแหล่งเรียนรู้ในการพัฒนาทักษะการเรียนรู้และการสร้างสรรค์ผลงาน</p>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paPrimary mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนมีความสุขและมั่นใจในการเรียนรู้ กล้าคิด แสดงความคิดเห็น เรียนรู้และทำงานร่วมกับผู้อื่นได้</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paPrimary mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ชั้นเรียนมีสภาพแวดล้อมและบรรยากาศที่เอื้อต่อการเรียนรู้ และส่งเสริมการคิด ทักษะการทำงาน และการใช้สื่อและเทคโนโลยีของผู้เรียน</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ร้อยละ 80 ของผู้เรียนมีความพึงพอใจต่อบรรยากาศและสภาพแวดล้อมในการเรียนรู้ในระดับมากขึ้นไป</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผลการนิเทศชั้นเรียนด้านการสร้างบรรยากาศที่ส่งเสริมและพัฒนาผู้เรียน อยู่ในระดับตั้งแต่ดีขึ้นไป</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="bg-green-50/20">
+                                    <div class="space-y-4 text-green-900">
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>นักเรียนชั้นประถมศึกษาปีที่ 2 จำนวน 16 คน มีความพึงพอใจต่อบรรยากาศและสภาพแวดล้อมในการเรียนรู้ในระดับมากขึ้นไป จำนวน 15 คน คิดเป็นร้อยละ 93.75สูงกว่าเกณฑ์ร้อยละ 80  และ ปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>ผลการนิเทศชั้นเรียน พบว่ามีการจัดสภาพแวดล้อมและบรรยากาศที่เอื้อต่อการเรียนรู้ ส่งเสริมการคิด การทำงานร่วมกัน และการใช้สื่อและเทคโนโลยีของผู้เรียน โดยผลการประเมินอยู่ในระดับ ดีมาก และปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Task 1.8 -->
+                            <tr class="hover:bg-paSecondary/10 transition-colors">
+                                <td>
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div class="font-medium text-gray-900 text-base">8. การอบรมและพัฒนาคุณลักษณะที่ดีของผู้เรียน</div>
+                                        <button onclick="openEvidenceModal(['ใส่_ID_ภาพที่1', 'ใส่_ID_ภาพที่2'])" title="ดูรูปภาพหลักฐาน" class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-paSecondary/40 text-paPrimary hover:bg-paPrimary hover:text-white transition-all shadow-sm group">
+                                            <i class="ph ph-image text-lg group-hover:scale-110 transition-transform"></i>
+                                            <span class="text-xs font-medium">หลักฐาน</span>
+                                        </button>
+                                    </div>
+                                    <p class="leading-relaxed">จัดกิจกรรมโฮมรูมเพื่ออบรมและพัฒนาคุณธรรม จริยธรรม และคุณลักษณะอันพึงประสงค์ของผู้เรียนอย่างต่อเนื่อง ส่งเสริมและติดตามการปฏิบัติตนตามค่านิยมความเป็นไทยที่ดีงาม เช่น การไหว้ การทำความเคารพ และการเข้าร่วมกิจกรรมที่ส่งเสริมความเป็นไทย ส่งเสริมพฤติกรรมเชิงบวกของผู้เรียนผ่านการให้คะแนนและรางวัล ทั้งรายบุคคลและรายกลุ่ม พร้อมติดตามพฤติกรรมของผู้เรียนอย่างต่อเนื่อง</p>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paPrimary mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนมีคุณธรรม จริยธรรม มีวินัย ความรับผิดชอบ และมีคุณลักษณะ อันพึงประสงค์ตามที่สถานศึกษากำหนด</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paPrimary mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนปฏิบัติตนตามค่านิยมความเป็นไทย ที่ดีงาม และมีส่วนร่วมในกิจกรรมที่ส่งเสริมความเป็นไทย</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paPrimary mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนมีพฤติกรรมเชิงบวก สามารถปฏิบัติตนตามข้อตกลงของชั้นเรียน และมีความรับผิดชอบต่อตนเองและส่วนรวม</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ร้อยละ 80 ของผู้เรียนมีผลการประเมินคุณลักษณะอันพึงประสงค์อยู่ในระดับตั้งแต่ผ่านเกณฑ์ขึ้นไป</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ร้อยละ 80 ของผู้เรียนปฏิบัติตนตามค่านิยมความเป็นไทยและเข้าร่วมกิจกรรมที่เกี่ยวข้องตามเกณฑ์ที่กำหนด</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ร้อยละ 80 ของผู้เรียนไม่ถูกตัดคะแนนพฤติกรรมตลอดรอบการประเมินของสถานศึกษา</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="bg-green-50/20">
+                                    <div class="space-y-4 text-green-900">
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>นักเรียนชั้นประถมศึกษาปีที่ 2 จำนวน 16 คน มีผลการประเมินคุณธรรม จริยธรรม และคุณลักษณะอันพึงประสงค์อยู่ในระดับผ่านเกณฑ์ขึ้นไป จำนวน 13 คน คิดเป็นร้อยละ 81.25 สูงกว่าเกณฑ์ที่กำหนดร้อยละ 80 และ ปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>นักเรียนชั้นประถมศึกษาปีที่ 2 จำนวน 16 คน ปฏิบัติตนตามค่านิยมความเป็นไทย เช่น การไหว้ การทำความเคารพ และเข้าร่วมกิจกรรมที่เกี่ยวข้องกับความเป็นไทยตามเกณฑ์ จำนวน 14 คน คิดเป็นร้อยละ 87.50 สูงกว่าเกณฑ์ที่กำหนดร้อยละ 80 และ ปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>นักเรียนชั้นประถมศึกษาปีที่ 2 จำนวน 16 คน ไม่ถูกตัดคะแนนพฤติกรรมตลอดรอบการประเมิน จำนวน 13 คน คิดเป็นร้อยละ 81.25 สูงกว่าเกณฑ์ที่กำหนดร้อยละ 80 สะท้อนถึงการมีพฤติกรรมที่เหมาะสมและการปฏิบัติตามข้อตกลงของชั้นเรียน และ ปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Domain 2 -->
+            <div class="mb-16" data-aos="fade-up">
+                <div class="bg-gradient-to-r from-paAccent1 to-[#b8b732] rounded-t-2xl p-6 text-white shadow-lg">
+                    <h4 class="text-2xl font-medium flex items-center gap-3">
+                        <i class="ph-light ph-handshake text-3xl"></i>
+                        2. ด้านการส่งเสริมและสนับสนุน
+                    </h4>
+                </div>
+                <div class="glass-card rounded-b-2xl p-1 overflow-x-auto shadow-soft">
+                    <table class="min-w-[1000px] w-full bg-white rounded-xl overflow-hidden">
+                        <thead>
+                            <tr>
+                                <th class="w-1/4 font-medium" style="background-color: #D7D63E; color: #333;">ลักษณะงานที่ปฏิบัติ / งาน (Tasks)</th>
+                                <th class="w-1/4 font-medium" style="background-color: #D7D63E; color: #333;">ผลลัพธ์ (Outcomes)</th>
+                                <th class="w-1/4 font-medium" style="background-color: #D7D63E; color: #333;">ตัวชี้วัด (Indicators)</th>
+                                <th class="w-1/4 font-medium" style="background-color: #D7D63E; color: #333;">ผลที่เกิดขึ้นตามข้อตกลงฯ</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm text-gray-700 font-light">
+                            <!-- Task 2.1 -->
+                            <tr class="hover:bg-paSecondary/10 transition-colors">
+                                <td>
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div class="font-medium text-gray-900 text-base">1. การจัดทำข้อมูลสารสนเทศของเด็กเป็นรายบุคคล</div>
+                                        <button onclick="openEvidenceModal(['ใส่_ID_ภาพที่1', 'ใส่_ID_ภาพที่2'])" title="ดูรูปภาพหลักฐาน" class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-paSecondary/40 text-paPrimary hover:bg-paPrimary hover:text-white transition-all shadow-sm group">
+                                            <i class="ph ph-image text-lg group-hover:scale-110 transition-transform"></i>
+                                            <span class="text-xs font-medium">หลักฐาน</span>
+                                        </button>
+                                    </div>
+                                    <p class="leading-relaxed">จัดทำและปรับปรุงข้อมูลสารสนเทศของผู้เรียน ได้แก่ข้อมูลพื้นฐาน ข้อมูลสุขภาพผลการเรียน พฤติกรรม การมาเรียน และการเข้าร่วมกิจกรรม ให้ครบถ้วนและเป็นปัจจุบัน เพื่อใช้ในการดูแลและพัฒนาผู้เรียน จัดทำและปรับปรุงข้อมูลสารสนเทศรายวิชาที่สอน ได้แก่ ข้อมูลโครงสร้างรายวิชา หน่วยการเรียนรู้ ผลการจัดการเรียนรู้ และผลการประเมินผู้เรียน</p>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paAccent1 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>มีข้อมูลสารสนเทศรายบุคคลที่ครบถ้วน เป็นปัจจุบัน และสามารถนำไปใช้ในการดูแล ส่งเสริม และพัฒนาผู้เรียนได้อย่างเหมาะสม</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paAccent1 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>มีข้อมูลสารสนเทศของรายวิชาที่รับผิดชอบครบถ้วนและเป็นปัจจุบัน สามารถนำไปใช้ในการวางแผน ติดตาม และพัฒนาการจัดการเรียนรู้ได้อย่างเป็นระบบ</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ร้อยละ 100 ของผู้เรียนมีข้อมูลสารสนเทศรายบุคคลครบถ้วนและเป็นปัจจุบัน</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ร้อยละ 100 ของข้อมูลสารสนเทศรายวิชาที่กำหนดมีการจัดทำและปรับปรุงให้เป็นปัจจุบัน สามารถนำไปใช้ประกอบการวางแผนและพัฒนาการจัดการเรียนรู้ได้</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="bg-green-50/20">
+                                    <div class="space-y-4 text-green-900">
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>นักเรียนชั้นประถมศึกษาปีที่ 2 จำนวน 16 คน คิดเป็นร้อยละ 100 มีข้อมูลพื้นฐาน ข้อมูลสุขภาพ ผลการเรียน พฤติกรรม การมาเรียน และการเข้าร่วมกิจกรรม ครบถ้วนและเป็นปัจจุบัน สามารถนำไปใช้ในการดูแลและพัฒนาผู้เรียนได้ และปฏิบัติได้ตามระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้ตามระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>มีการจัดทำและปรับปรุงข้อมูลสารสนเทศรายวิชาที่รับผิดชอบครบถ้วนและเป็นปัจจุบัน คิดเป็นร้อยละ 100 สามารถนำข้อมูลไปใช้ในการวางแผน ติดตาม และพัฒนาการจัดการเรียนรู้ได้อย่างเป็นระบบ และ ปฏิบัติได้ตามระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้ตามระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Task 2.2 -->
+                            <tr class="hover:bg-paSecondary/10 transition-colors">
+                                <td>
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div class="font-medium text-gray-900 text-base">2. การดำเนินการตามระบบการดูแลช่วยเหลือนักเรียน</div>
+                                        <button onclick="openEvidenceModal(['ใส่_ID_ภาพที่1', 'ใส่_ID_ภาพที่2'])" title="ดูรูปภาพหลักฐาน" class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-paSecondary/40 text-paPrimary hover:bg-paPrimary hover:text-white transition-all shadow-sm group">
+                                            <i class="ph ph-image text-lg group-hover:scale-110 transition-transform"></i>
+                                            <span class="text-xs font-medium">หลักฐาน</span>
+                                        </button>
+                                    </div>
+                                    <p class="leading-relaxed">ดำเนินการเยี่ยมบ้านนักเรียนเพื่อศึกษาสภาพความเป็นอยู่ ความต้องการ และปัจจัยที่ส่งผลต่อการเรียนรู้ของผู้เรียน ดำเนินการคัดกรองนักเรียนเป็นรายบุคคล เพื่อจำแนกผู้เรียนตามสภาพปัญหาและความต้องการ และใช้ข้อมูลในการวางแผนดูแลช่วยเหลือผู้เรียน</p>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paAccent1 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนได้รับการดูแลช่วยเหลือและส่งเสริมตามข้อมูลสภาพความเป็นอยู่ ความต้องการ และปัจจัยที่เกี่ยวข้องกับการเรียนรู้ของแต่ละบุคคล</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paAccent1 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนได้รับการจำแนกตามสภาพปัญหาและความต้องการอย่างเหมาะสม เพื่อให้ได้รับการดูแลช่วยเหลือและพัฒนาได้ตรงตามความต้องการ</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ร้อยละ 100 ของผู้เรียนได้รับการเยี่ยมบ้านและมีข้อมูลสภาพความเป็นอยู่และความต้องการรายบุคคลครบถ้วน</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ร้อยละ 100 ของผู้เรียนได้รับการคัดกรองและจำแนกตามระบบดูแลช่วยเหลือผู้เรียน</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="bg-green-50/20">
+                                    <div class="space-y-4 text-green-900">
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>นักเรียนชั้นประถมศึกษาปีที่ 2 จำนวน 16 คน คิดเป็นร้อยละ 100 ได้รับการเยี่ยมบ้านและมีข้อมูลสภาพความเป็นอยู่และความต้องการรายบุคคลครบถ้วน สามารถนำข้อมูลมาใช้ประกอบการดูแลช่วยเหลือและส่งเสริมผู้เรียนได้อย่างเหมาะสม และ ปฏิบัติได้ตามระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้ตามระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>นักเรียนชั้นประถมศึกษาปีที่ 2 จำนวน 16 คน คิดเป็นร้อยละ 100 ได้รับการคัดกรองและจำแนกตามระบบดูแลช่วยเหลือผู้เรียน ทำให้สามารถกำหนดแนวทางการดูแลช่วยเหลือผู้เรียนได้เหมาะสมกับความต้องการ และ ปฏิบัติได้ตามระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้ตามระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Task 2.3 -->
+                            <tr class="hover:bg-paSecondary/10 transition-colors">
+                                <td>
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div class="font-medium text-gray-900 text-base">3. การปฏิบัติงานวิชาการและงานอื่น ๆ</div>
+                                        <button onclick="openEvidenceModal(['ใส่_ID_ภาพที่1', 'ใส่_ID_ภาพที่2'])" title="ดูรูปภาพหลักฐาน" class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-paSecondary/40 text-paPrimary hover:bg-paPrimary hover:text-white transition-all shadow-sm group">
+                                            <i class="ph ph-image text-lg group-hover:scale-110 transition-transform"></i>
+                                            <span class="text-xs font-medium">หลักฐาน</span>
+                                        </button>
+                                    </div>
+                                    <p class="leading-relaxed">ดำเนินงานนิเทศภายใน โดยวางแผน นิเทศ ติดตาม และให้ข้อเสนอแนะ เพื่อส่งเสริมการพัฒนาการจัดการเรียนรู้ให้ตอบสนองต่อผู้เรียน พัฒนาเว็ปไซต์ระบบรายงานและติดตามความก้าวหน้าผลการเรียน</p>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paAccent1 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนได้รับการจัดการเรียนรู้ที่มีประสิทธิภาพควบคู่ไปกับกระบวนการนิเทศภายในชั้นเรียนโดยมีระบบเว็บไซต์เป็นเครื่องมือสนับสนุนการนิเทศภายใน</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paAccent1 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>มีเว็บไซต์ระบบรายงานและติดตามความก้าวหน้าผลการเรียน เพื่อใช้กำกับติดตามผลสัมฤทธิ์ของผู้เรียนได้อย่างถูกต้อง รวดเร็ว และลดความซ้ำซ้อนของงานเอกสาร</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ร้อยละ 90 ของนักเรียนทั้งหมดได้รับการ จัดการเรียนการสอนในระหว่างกระบวนการนิเทศภายในตามแผนที่กำหนด</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ร้อยละ 100 ของครูผู้สอน สามารถใช้งานเว็บไซต์ระบบรายงานและติดตามความก้าวหน้าผลการเรียนเพื่อรายงานผลการเรียนได้อย่างถูกต้อง รวดเร็ว และลดความซ้ำซ้อนของงานเอกสาร</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="bg-green-50/20">
+                                    <div class="space-y-4 text-green-900">
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>นักเรียนทั้งหมด จำนวน 116 คน ได้รับการจัดการเรียนการสอนในระหว่างกระบวนการนิเทศภายในตามรอบที่กำหนด จำนวน 105 คน คิดเป็นร้อยละ 90.52 โดยมีฐานข้อมูลการเข้าใช้งานและบันทึกข้อเสนอแนะจากเว็บไซต์นิเทศภายในเป็นหลักฐานเชิงประจักษ์ซึ่งบรรลุเป้าหมายและปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>ดำเนินการพัฒนาเว็บไซต์ระบบรายงานและติดตามความก้าวหน้าผลการเรียนสำเร็จ โดยครูผู้สอนร้อยละ 100 ได้เข้าใช้งานระบบเพื่อติดตามผลการเรียนและนักเรียนกลุ่มเสี่ยง (เช่น 0, ร, มส) ระบบสามารถบริหารจัดการข้อมูลผ่าน Google Sheets ได้อย่างมีประสิทธิภาพ ใช้งานง่ายผ่านสมาร์ทโฟน ช่วยลดขั้นตอนการทำเอกสารลงได้จริง ทำให้การจัดการข้อมูลวิชาการมีความเป็นระบบ บรรลุเป้าหมายซึ่งปฏิบัติได้ตามระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้ตามระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Task 2.4 -->
+                            <tr class="hover:bg-paSecondary/10 transition-colors">
+                                <td>
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div class="font-medium text-gray-900 text-base">4. การประสานความร่วมมือกับผู้ปกครอง ภาคีเครือข่าย และหรือสถานประกอบการ</div>
+                                        <button onclick="openEvidenceModal(['ใส่_ID_ภาพที่1', 'ใส่_ID_ภาพที่2'])" title="ดูรูปภาพหลักฐาน" class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-paSecondary/40 text-paPrimary hover:bg-paPrimary hover:text-white transition-all shadow-sm group">
+                                            <i class="ph ph-image text-lg group-hover:scale-110 transition-transform"></i>
+                                            <span class="text-xs font-medium">หลักฐาน</span>
+                                        </button>
+                                    </div>
+                                    <p class="leading-relaxed">จัดและพัฒนาช่องทางการสื่อสารกับผู้ปกครองทั้งแบบออนไลน์และออฟไลน์ เช่น Line, Facebook และโทรศัพท์ เพื่อประสานข้อมูล ติดตาม และร่วมดูแลช่วยเหลือผู้เรียนอย่างต่อเนื่อง ประสานความร่วมมือกับภาคีเครือข่ายหรือสถานประกอบการเพื่อระดมทรัพยากรและสื่อการเรียนรู้ เช่น สื่อการสอนแบบทำมือ หนังสือนิทาน และตู้หนังสือ เพื่อส่งเสริมการเรียนรู้ของผู้เรียน</p>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paAccent1 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนได้รับการดูแลและส่งเสริมการเรียนรู้อย่างต่อเนื่องจากการสื่อสารและความร่วมมือระหว่างครูกับผู้ปกครอง</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paAccent1 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนมีสื่อและแหล่งเรียนรู้เพิ่มเติมที่หลากหลาย สามารถใช้ในการเรียนรู้และศึกษาค้นคว้าได้ตามความสนใจ</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ร้อยละ 80 ของผู้ปกครองมีช่องทางการติดต่อสื่อสารกับครู และมีส่วนร่วมในการติดตามและดูแลผู้เรียน</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนได้รับสื่อและแหล่งเรียนรู้จากความร่วมมือของภาคีเครือข่ายหรือสถานประกอบการ ไม่น้อยกว่า 3 ประเภท</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="bg-green-50/20">
+                                    <div class="space-y-4 text-green-900">
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>ผู้ปกครองนักเรียนชั้นประถมศึกษาปีที่ 2 จำนวน 16 คน มีช่องทางการติดต่อสื่อสารกับครูทั้งผ่าน Line, Facebook และโทรศัพท์ และมีส่วนร่วมในการติดตามและดูแลผู้เรียน จำนวน 15 คน คิดเป็นร้อยละ 93.75 สูงกว่าเกณฑ์ที่กำหนดร้อยละ 80 และ ปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>นักเรียนชั้นประถมศึกษาปีที่ 2 ได้รับสื่อและแหล่งเรียนรู้จากการประสานความร่วมมือกับภาคีเครือข่าย ได้แก่ สื่อการสอนประเภทสื่อสำเร็จรูป หนังสือนิทาน ตู้หนังสือขนาดเล็ก บอร์ดเกม และป้ายนิเทศแบบไวนิล รวมไม่น้อยกว่า 3 ประเภท ส่งผลให้ผู้เรียนมีสื่อและแหล่งเรียนรู้สำหรับศึกษาและเรียนรู้เพิ่มเติม และ ปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Domain 3 -->
+            <div class="mb-16" data-aos="fade-up">
+                <div class="bg-gradient-to-r from-paAccent2 to-[#e854b7] rounded-t-2xl p-6 text-white shadow-lg">
+                    <h4 class="text-2xl font-medium flex items-center gap-3">
+                        <i class="ph-light ph-books text-3xl"></i>
+                        3. ด้านการพัฒนาตนเองและวิชาชีพ
+                    </h4>
+                </div>
+                <div class="glass-card rounded-b-2xl p-1 overflow-x-auto shadow-soft">
+                    <table class="min-w-[1000px] w-full bg-white rounded-xl overflow-hidden">
+                        <thead>
+                            <tr>
+                                <th class="w-1/4 font-medium" style="background-color: #DA329F; color: white;">ลักษณะงานที่ปฏิบัติ / งาน (Tasks)</th>
+                                <th class="w-1/4 font-medium" style="background-color: #DA329F; color: white;">ผลลัพธ์ (Outcomes)</th>
+                                <th class="w-1/4 font-medium" style="background-color: #DA329F; color: white;">ตัวชี้วัด (Indicators)</th>
+                                <th class="w-1/4 font-medium" style="background-color: #DA329F; color: white;">ผลที่เกิดขึ้นตามข้อตกลงฯ</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm text-gray-700 font-light">
+                            <!-- Task 3.1 -->
+                            <tr class="hover:bg-paSecondary/10 transition-colors">
+                                <td>
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div class="font-medium text-gray-900 text-base">1. การพัฒนาตนเองอย่างเป็นระบบและต่อเนื่อง</div>
+                                        <button onclick="openEvidenceModal(['ใส่_ID_ภาพที่1', 'ใส่_ID_ภาพที่2'])" title="ดูรูปภาพหลักฐาน" class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-paSecondary/40 text-paPrimary hover:bg-paPrimary hover:text-white transition-all shadow-sm group">
+                                            <i class="ph ph-image text-lg group-hover:scale-110 transition-transform"></i>
+                                            <span class="text-xs font-medium">หลักฐาน</span>
+                                        </button>
+                                    </div>
+                                    <p class="leading-relaxed">พัฒนาตนเองด้านการจัดการเรียนรู้และเทคโนโลยีทางการศึกษา โดยเข้าร่วมการอบรม พัฒนา และแลกเปลี่ยนเรียนรู้ที่เกี่ยวข้องกับการจัดการเรียนรู้ นำความรู้และทักษะที่ได้รับจากการพัฒนาตนเองมาประยุกต์ใช้ในการจัดการเรียนรู้และพัฒนางานในสถานศึกษา</p>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ครูมีความรู้และทักษะด้านการจัดการเรียนรู้และการใช้เทคโนโลยีทางการศึกษาเพิ่มขึ้น และสามารถนำไปประยุกต์ใช้ในการปฏิบัติงาน</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนได้รับประโยชน์จากการจัดการเรียนรู้ที่ได้รับการพัฒนา โดยมีการนำความรู้และทักษะใหม่มาปรับใช้ให้เหมาะสมกับการเรียนรู้ของผู้เรียน</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent1 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>เข้าร่วมการอบรม พัฒนา หรือแลกเปลี่ยนเรียนรู้ ไม่น้อยกว่า 20ชั่วโมงต่อรอบการประเมิน และมีหลักฐานการพัฒนาตนเองครบถ้วน</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent1 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>มีการนำความรู้หรือทักษะจากการพัฒนาตนเองมาประยุกต์ใช้ในการจัดการเรียนรู้ ไม่น้อยกว่า 3 กิจกรรม/แนวทาง และมีหลักฐานแสดงผลการนำไปใช้</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="bg-green-50/20">
+                                    <div class="space-y-4 text-green-900">
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>เข้าร่วมการอบรม พัฒนา และแลกเปลี่ยนเรียนรู้ด้านการจัดการเรียนรู้และเทคโนโลยีทางการศึกษา รวม 28 ชั่วโมง มีหลักฐานการพัฒนาตนเองครบถ้วน และสามารถนำความรู้มาประยุกต์ใช้ในการปฏิบัติงานได้ และ ปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>นำความรู้และทักษะจากการพัฒนาตนเองมาประยุกต์ใช้ในการจัดการเรียนรู้ จำนวน 5 กิจกรรม/แนวทาง ส่งผลให้ผู้เรียนได้รับประสบการณ์การเรียนรู้ที่หลากหลายและเหมาะสมกับการเรียนรู้ของผู้เรียน และ ปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Task 3.2 -->
+                            <tr class="hover:bg-paSecondary/10 transition-colors">
+                                <td>
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div class="font-medium text-gray-900 text-base">2. การมีส่วนร่วมในการแลกเปลี่ยนเรียนรู้ทางวิชาชีพเพื่อพัฒนาการจัดการเรียนรู้</div>
+                                        <button onclick="openEvidenceModal(['ใส่_ID_ภาพที่1', 'ใส่_ID_ภาพที่2'])" title="ดูรูปภาพหลักฐาน" class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-paSecondary/40 text-paPrimary hover:bg-paPrimary hover:text-white transition-all shadow-sm group">
+                                            <i class="ph ph-image text-lg group-hover:scale-110 transition-transform"></i>
+                                            <span class="text-xs font-medium">หลักฐาน</span>
+                                        </button>
+                                    </div>
+                                    <p class="leading-relaxed">เข้าร่วมชุมชนแห่งการเรียนรู้ทางวิชาชีพ (PLC) ร่วมกับครูและบุคลากรในสถานศึกษา เพื่อแลกเปลี่ยนปัญหา แนวทางการจัดการเรียนรู้ และร่วมกันพัฒนาผู้เรียน นำองค์ความรู้และแนวทางที่ได้จากการแลกเปลี่ยนเรียนรู้ทางวิชาชีพมาปรับใช้ในการจัดการเรียนรู้และพัฒนางานของตนเอง</p>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ครูมีการแลกเปลี่ยนเรียนรู้ ร่วมวิเคราะห์ปัญหา และร่วมพัฒนาแนวทางการจัดการเรียนรู้กับเพื่อนครูอย่างต่อเนื่อง</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนได้รับประโยชน์จากแนวทางการจัดการเรียนรู้ที่ได้รับการพัฒนาและปรับปรุงจากการแลกเปลี่ยนเรียนรู้ทางวิชาชีพ</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent1 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>เข้าร่วมกิจกรรม PLC และมีหลักฐานการแลกเปลี่ยนเรียนรู้ ไม่น้อยกว่า 10 ครั้งต่อรอบการประเมิน</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent1 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>มีการนำผลจากการแลกเปลี่ยนเรียนรู้ไปปรับใช้ในการจัดการเรียนรู้ ไม่น้อยกว่า 2 แนวทาง/กิจกรรม และมีหลักฐานการนำไปใช้</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="bg-green-50/20">
+                                    <div class="space-y-4 text-green-900">
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>เข้าร่วมกิจกรรม PLC จำนวน  18 ครั้ง มีการแลกเปลี่ยนเรียนรู้ วิเคราะห์ปัญหา และร่วมพัฒนาแนวทางการจัดการเรียนรู้กับเพื่อนครูอย่างต่อเนื่อง พร้อมมีหลักฐานการดำเนินงาน ซึ่งปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>นำผลจากการแลกเปลี่ยนเรียนรู้มาปรับใช้ในการจัดการเรียนรู้ จำนวน 5 แนวทาง/กิจกรรม ส่งผลให้ผู้เรียนได้รับประสบการณ์การเรียนรู้ที่เหมาะสมและได้รับการพัฒนาอย่างต่อเนื่อง ซึ่ง ปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Task 3.3 -->
+                            <tr class="hover:bg-paSecondary/10 transition-colors">
+                                <td>
+                                    <div class="flex justify-between items-start mb-2">
+                                        <div class="font-medium text-gray-900 text-base">3. การนำความรู้ความสามารถ ทักษะที่ได้จากการพัฒนาตนเองและวิชาชีพมาใช้ในการพัฒนาการจัดการเรียนรู้ การพัฒนาคุณภาพผู้เรียน และการพัฒนานวัตกรรมการจัดการเรียนรู้</div>
+                                        <button onclick="openEvidenceModal(['ใส่_ID_ภาพที่1', 'ใส่_ID_ภาพที่2'])" title="ดูรูปภาพหลักฐาน" class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-paSecondary/40 text-paPrimary hover:bg-paPrimary hover:text-white transition-all shadow-sm group">
+                                            <i class="ph ph-image text-lg group-hover:scale-110 transition-transform"></i>
+                                            <span class="text-xs font-medium">หลักฐาน</span>
+                                        </button>
+                                    </div>
+                                    <p class="leading-relaxed">นำความรู้และทักษะที่ได้รับจากการอบรม พัฒนาตนเอง และการแลกเปลี่ยนเรียนรู้ทางวิชาชีพ มาปรับใช้ในการพัฒนาสื่อ นวัตกรรม และการจัดการเรียนรู้ นำผลจากการพัฒนาตนเองและวิชาชีพมาปรับปรุงการปฏิบัติงาน เพื่อยกระดับคุณภาพการเรียนรู้ของผู้เรียน</p>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>มีการประยุกต์ใช้ความรู้และทักษะที่ได้รับมาพัฒนาสื่อ นวัตกรรม และวิธีการจัดการเรียนรู้ให้เหมาะสมกับผู้เรียน</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-caret-circle-right text-paAccent2 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ผู้เรียนได้รับการจัดการเรียนรู้ที่มีความหลากหลาย เหมาะสมกับความต้องการ และส่งเสริมให้เกิดการเรียนรู้และพัฒนาศักยภาพ</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="space-y-3">
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent1 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>มีผลงานที่เกิดจากการนำความรู้และทักษะจากการพัฒนาตนเองและวิชาชีพมาประยุกต์ใช้ ไม่น้อยกว่า 3 ผลงาน/แนวทาง</span>
+                                        </div>
+                                        <div class="pb-3 border-b border-gray-100 last:border-0 last:pb-0 flex gap-2 items-start">
+                                            <i class="ph-light ph-target text-paAccent1 mt-0.5 shrink-0 text-lg"></i>
+                                            <span>ร้อยละ 80 ของผู้เรียนมีผลการประเมินการเรียนรู้หลังการนำความรู้และทักษะมาประยุกต์ใช้ผ่านเกณฑ์ที่กำหนด</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="bg-green-50/20">
+                                    <div class="space-y-4 text-green-900">
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>นำความรู้และทักษะจากการพัฒนาตนเองและวิชาชีพมาประยุกต์ใช้ในการพัฒนาสื่อ นวัตกรรม และการจัดการเรียนรู้ จำนวน 5 ผลงาน/แนวทาง และ ปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                        <div class="pb-4 border-b border-green-100/50 last:border-0 last:pb-0">
+                                            <p>นักเรียนชั้นประถมศึกษาปีที่ 2 จำนวน 16 คน มีผลการประเมินการเรียนรู้หลังการนำความรู้และทักษะมาประยุกต์ใช้ผ่านเกณฑ์ จำนวน 14 คน คิดเป็นร้อยละ 87.50 สูงกว่าเกณฑ์ที่กำหนดร้อยละ 80 ซึ่งปฏิบัติได้สูงกว่าระดับที่คาดหวัง</p>
+                                            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="part2" class="scroll-mt-32 mb-24">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-sm font-medium tracking-widest text-paPrimary uppercase mb-2">ส่วนที่ 2</h2>
+                <h3 class="text-3xl md:text-4xl font-medium text-gray-900">ข้อตกลงในการพัฒนางานที่เป็นประเด็นท้าทาย</h3>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto font-light">ในการพัฒนาผลลัพธ์การเรียนรู้ของผู้เรียน</p>
+            </div>
+
+            <div class="glass-card rounded-3xl p-8 shadow-xl border-t-8 border-t-paPrimary relative" data-aos="fade-up">
+                
+                <div class="bg-gradient-to-r from-paSecondary/50 to-transparent p-6 rounded-2xl mb-10 border border-paPrimary/20">
+                    <h4 class="text-xl font-medium text-paDark mb-2 flex items-center gap-2">
+                        <i class="ph-light ph-target text-paPrimary text-3xl"></i> ประเด็นท้าทาย
+                    </h4>
+                    <p class="text-lg text-gray-800 leading-relaxed font-light mt-4 pl-10 border-l-4 border-paAccent2">
+                        เรื่อง การพัฒนาผลสัมฤทธิ์ทางการเรียนวิชาคณิตศาสตร์ เรื่อง <span class="text-paPrimary font-medium">การวัดน้ำหนัก</span> ของนักเรียนชั้นประถมศึกษาปีที่ 2 โดยใช้รูปแบบการจัดการเรียนรู้แบบร่วมมือเทคนิค <span class="text-paAccent2 font-medium">STAD</span> ร่วมกับเทคนิค <span class="text-paAccent2 font-medium">เกมิฟิเคชัน (Gamification)</span>
+                    </p>
+                </div>
+
+                <!-- 1. วิธีดำเนินการ -->
+                <div class="mb-12">
+                    <h4 class="text-2xl font-medium text-paPrimary mb-6 flex items-center gap-2 border-b border-gray-200 pb-2">
+                        <i class="ph-light ph-gear"></i> 1. วิธีดำเนินการ
+                    </h4>
+                    
+                    <div class="space-y-8">
+                        <!-- 1.1 -->
+                        <div class="bg-white/60 p-6 rounded-2xl border border-gray-100 hover-lift">
+                            <h5 class="text-lg font-medium text-gray-800 mb-4 flex items-center gap-2">
+                                <span class="bg-paPrimary text-white w-8 h-8 flex items-center justify-center rounded-full text-sm">1.1</span> 
+                                สภาพปัญหา ที่มา และความสำคัญ
+                            </h5>
+                            <div class="text-gray-600 space-y-4 text-sm leading-relaxed font-light">
+                                <p>คณิตศาสตร์มีความสำคัญต่อการพัฒนาความรู้ ความเข้าใจ การคิด การแก้ปัญหา และการนำความรู้ไปใช้ในชีวิตประจำวัน โดยเฉพาะเรื่อง การวัดน้ำหนัก ซึ่งนักเรียนชั้นประถมศึกษาปีที่ 2 ต้องเรียนรู้การวัดและเปรียบเทียบน้ำหนักเป็นกิโลกรัมและกรัม กิโลกรัมและขีด ตลอดจนการแก้โจทย์ปัญหาการบวกและการลบเกี่ยวกับน้ำหนัก ตามตัวชี้วัด ค 2.1 ป.2/4 และ ค 2.1 ป.2/5 (กระทรวงศึกษาธิการ, 2560) เนื้อหาดังกล่าวจึงเป็นทั้งความรู้พื้นฐานทางคณิตศาสตร์และความรู้ที่สามารถนำไปใช้ในสถานการณ์ใกล้ตัวของผู้เรียนได้</p>
+                                <p>จากการจัดการเรียนรู้วิชาคณิตศาสตร์ พบว่านักเรียนบางส่วนยังมีความสับสนเกี่ยวกับหน่วยและความสัมพันธ์ของหน่วยน้ำหนัก โดยเฉพาะกิโลกรัม กรัม และขีด รวมถึงการเปรียบเทียบน้ำหนักและการนำความรู้ไปใช้แก้โจทย์ปัญหา อีกทั้งนักเรียนบางส่วนยังมีส่วนร่วมในการเรียนรู้ไม่ต่อเนื่อง ขาดความกระตือรือร้น และมักรอการบอกวิธีทำจากครู ปัญหาดังกล่าวสะท้อนถึงความจำเป็นในการจัดกิจกรรมที่ให้นักเรียนได้ลงมือปฏิบัติ แลกเปลี่ยนความคิดเห็น ช่วยเหลือกัน และนำความรู้ไปใช้ในสถานการณ์ที่หลากหลาย ซึ่งสอดคล้องกับแนวทางการเรียนรู้คณิตศาสตร์ที่มุ่งให้ผู้เรียนสามารถใช้ความรู้และทักษะทางคณิตศาสตร์ในการแก้ปัญหาและสื่อสารความคิดทางคณิตศาสตร์ได้ (กระทรวงศึกษาธิการ, 2560)</p>
+                                <p>การจัดการเรียนรู้แบบร่วมมือเทคนิค STAD (Student Teams–Achievement Divisions) เป็นแนวทางที่จัดผู้เรียนเป็นกลุ่มคละความสามารถ ให้สมาชิกช่วยกันเรียนรู้และรับผิดชอบต่อการเรียนรู้ของตนเองและทีม โดยประกอบด้วยการนำเสนอเนื้อหา การทำงานเป็นทีม การทดสอบรายบุคคล การพิจารณาคะแนนพัฒนาการ และการยกย่องทีม (Slavin, 1995, อ้างถึงใน ชัยวัฒน์ สุทธิรัตน์, 2553) ลักษณะดังกล่าวช่วยเชื่อมโยงความรับผิดชอบรายบุคคลกับความสำเร็จของกลุ่ม และมีหลักฐานจากงานวิจัยทั้งในและต่างประเทศที่สนับสนุนการนำ STAD มาใช้กับการเรียนคณิตศาสตร์ โดย ทอฝัน แววกระโทก และ ผดุง เพชรสุข (2565) พบว่าการใช้ STAD กับนักเรียนชั้นประถมศึกษาปีที่ 5 ช่วยให้ผลสัมฤทธิ์หลังเรียนสูงกว่าก่อนเรียน และงานของ Hareesol Khun-Inkeeree และคณะ (2017) รายงานผลเชิงบวกของ STAD ต่อผลสัมฤทธิ์และการคงอยู่ของความรู้ทางคณิตศาสตร์ของนักเรียนไทย</p>
+                                <p>อย่างไรก็ตาม การจัดการเรียนรู้สำหรับนักเรียนระดับประถมศึกษาควรคำนึงถึงความสนใจและแรงจูงใจของผู้เรียนควบคู่กับการพัฒนาด้านความรู้ จึงสามารถนำแนวคิด เกมิฟิเคชัน (Gamification) มาประกอบการจัดกิจกรรม โดยเกมิฟิเคชันหมายถึงการนำองค์ประกอบของการออกแบบเกมมาใช้ในบริบทที่ไม่ใช่เกมโดยตรง (Deterding และคณะ, 2011, อ้างถึงใน แสงเพ็ชร พระฉาย, สายสุนีย์ จับโจร, และ อรัญ ซุยกระเดื่อง, 2561) ซึ่งสามารถประยุกต์ใช้ผ่านคะแนนสะสม เหรียญตรา ระดับ เป้าหมาย ความท้าทาย การแข่งขัน และข้อมูลย้อนกลับ เพื่อส่งเสริมการมีส่วนร่วมและความกระตือรือร้นของผู้เรียน (แสงเพ็ชร พระฉาย, สายสุนีย์ จับโจร, และ อรัญ ซุยกระเดื่อง, 2561)</p>
+                                <p>แนวคิดดังกล่าวมีงานวิจัยรองรับในบริบทการเรียนรู้คณิตศาสตร์ โดย เกษกานดา สุรรัตน์ และ อังคณา อ่อนธานี (2566) นำเกมิฟิเคชันแบบออนไลน์มาใช้เพื่อส่งเสริมความสามารถในการแก้ปัญหาทางคณิตศาสตร์และแรงจูงใจในการเรียน ขณะที่ สุภาพร วรรณใส และ อัมพร วัจนะ (2569) พบว่าการจัดการเรียนรู้คณิตศาสตร์โดยใช้เกมเป็นฐานร่วมกับ STAD สามารถส่งเสริมผลสัมฤทธิ์ทางการเรียนและแรงจูงใจในการเรียนได้ นอกจากนี้ ภิญญาดา พรหมปา และคณะ (2569) ซึ่งนำ STAD ร่วมกับ Gamification มาใช้ในการจัดการเรียนรู้วิทยาศาสตร์ พบว่าผลสัมฤทธิ์หลังเรียนสูงกว่าก่อนเรียน และผู้เรียนมีผลด้านทักษะกระบวนการทางวิทยาศาสตร์และเจตคติที่น่าพอใจ</p>
+                                <p>จากสภาพปัญหา แนวคิด และงานวิจัยที่เกี่ยวข้อง ผู้รายงานจึงเห็นว่า การจัดการเรียนรู้แบบร่วมมือเทคนิค STAD ร่วมกับเทคนิคเกมิฟิเคชัน มีความเหมาะสมที่จะนำมาประยุกต์ใช้ในการพัฒนาผลสัมฤทธิ์ทางการเรียนเรื่องการวัดน้ำหนักของนักเรียนชั้นประถมศึกษาปีที่ 2 โดยให้ STAD ทำหน้าที่เป็นโครงสร้างหลักในการจัดการเรียนรู้และการทำงานร่วมกัน ส่วน Gamification ทำหน้าที่เสริมเป้าหมาย ความท้าทาย แรงจูงใจ และข้อมูลย้อนกลับผ่านองค์ประกอบของเกม ทั้งนี้ การออกแบบกิจกรรมจะมุ่งให้องค์ประกอบดังกล่าวสนับสนุนการเรียนรู้และการพัฒนาของผู้เรียน มากกว่าการเน้นการแข่งขันหรือรางวัลเพียงอย่างเดียว</p>
+                            </div>
+                        </div>
+
+                        <!-- 1.2 -->
+                        <div class="bg-white/60 p-6 rounded-2xl border border-gray-100 hover-lift">
+                            <h5 class="text-lg font-medium text-gray-800 mb-4 flex items-center gap-2">
+                                <span class="bg-paAccent2 text-white w-8 h-8 flex items-center justify-center rounded-full text-sm">1.2</span> 
+                                วัตถุประสงค์และเป้าหมายของการศึกษา
+                            </h5>
+                            
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                                <div>
+                                    <h6 class="font-medium text-paPrimary mb-3 border-b pb-1">1.2.1 วัตถุประสงค์</h6>
+                                    <ul class="space-y-2 text-sm text-gray-600 font-light">
+                                        <li class="flex gap-2"><i class="ph-light ph-check text-paAccent2 mt-0.5 shrink-0"></i> 1) เพื่อพัฒนาผลสัมฤทธิ์ทางการเรียนวิชาคณิตศาสตร์ เรื่อง การวัดน้ำหนัก ของนักเรียนชั้นประถมศึกษาปีที่ 2 โดยใช้การจัดการเรียนรู้แบบร่วมมือเทคนิค STAD ร่วมกับเทคนิคเกมิฟิเคชัน</li>
+                                        <li class="flex gap-2"><i class="ph-light ph-check text-paAccent2 mt-0.5 shrink-0"></i> 2) เพื่อศึกษาความพึงพอใจของนักเรียนเรียนชั้นประถมศึกษาปีที่ 2 ที่มีต่อการจัดการเรียนรู้แบบร่วมมือเทคนิค STAD ร่วมกับเทคนิคเกมิฟิเคชัน</li>
+                                    </ul>
+                                </div>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h6 class="font-medium text-paAccent1 mb-2 border-b pb-1">1.2.2 เป้าหมายเชิงปริมาณ</h6>
+                                        <ul class="space-y-2 text-sm text-gray-600 font-light">
+                                            <li class="flex gap-2"><i class="ph-light ph-dot-outline text-paAccent1 mt-0.5 shrink-0"></i> 1) ร้อยละ 80 ของนักเรียนชั้นประถมศึกษาปีที่ 2 มีผลสัมฤทธิ์ทางการเรียนวิชาคณิตศาสตร์เรื่อง การวัดน้ำหนัก หลังได้รับการจัดการเรียนรู้แบบร่วมมือเทคนิค STAD ร่วมกับเทคนิคเกมิฟิเคชัน ไม่น้อยกว่าร้อยละ 50 ของคะแนนเต็ม</li>
+                                            <li class="flex gap-2"><i class="ph-light ph-dot-outline text-paAccent1 mt-0.5 shrink-0"></i> 2) ร้อยละ 80 ของนักเรียนชั้นประถมศึกษาปีที่ 2 มีผลสัมฤทธิ์ทางการเรียนวิชาคณิตศาสตร์เรื่อง การวัดน้ำหนัก หลังเรียนสูงกว่าก่อนเรียน</li>
+                                            <li class="flex gap-2"><i class="ph-light ph-dot-outline text-paAccent1 mt-0.5 shrink-0"></i> 3) ร้อยละ 80 ของนักเรียนชั้นประถมศึกษาปีที่ 2 มีความพึงพอใจต่อการจัดการเรียนรู้แบบร่วมมือเทคนิค STAD ร่วมกับเทคนิคเกมิฟิเคชันโดยรวมอยู่ในระดับมากขึ้นไป</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-gray-100">
+                                <h6 class="font-medium text-gray-800 mb-2">1.2.3 เป้าหมายเชิงคุณภาพ</h6>
+                                <ul class="space-y-2 text-sm text-gray-600 font-light">
+                                    <li class="flex gap-2"><i class="ph-light ph-star text-yellow-500 mt-0.5 shrink-0"></i> 1) นักเรียนมีความรู้และความเข้าใจเกี่ยวกับการวัดน้ำหนัก สามารถเลือกใช้หน่วยน้ำหนัก อ่าน และเปรียบเทียบน้ำหนักของสิ่งของได้อย่างถูกต้อง โดยมีผลการประเมินอยู่ในระดับคุณภาพ ดีขึ้นไป</li>
+                                    <li class="flex gap-2"><i class="ph-light ph-star text-yellow-500 mt-0.5 shrink-0"></i> 2) นักเรียนมีความกระตือรือร้นในการเรียนรู้ มีส่วนร่วมในกิจกรรม และมีความพยายามในการทำงานให้บรรลุเป้าหมายของทีม โดยมีผลการประเมินพฤติกรรมในระดับคุณภาพ ดีมาก</li>
+                                    <li class="flex gap-2"><i class="ph-light ph-star text-yellow-500 mt-0.5 shrink-0"></i> 3) นักเรียนแสดงความรู้สึกเชิงบวกต่อการเรียนคณิตศาสตร์ รู้สึกสนุกและสนใจในการทำกิจกรรม และเห็นว่าการใช้คะแนน ภารกิจ ความท้าทาย และรางวัลช่วยให้การเรียนรู้มีความน่าสนใจมากขึ้น</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- 1.3 -->
+                        <div class="bg-white/60 p-6 rounded-2xl border border-gray-100 hover-lift">
+                            <h5 class="text-lg font-medium text-gray-800 mb-4 flex items-center gap-2">
+                                <span class="bg-paAccent1 text-white w-8 h-8 flex items-center justify-center rounded-full text-sm">1.3</span> 
+                                วิธีการดำเนินงาน
+                            </h5>
+                            
+                            <p class="text-sm text-gray-600 font-light mb-4"><strong>1.3.1 กลุ่มเป้าหมาย:</strong> นักเรียนชั้นประถมศึกษาปีที่ 2 โรงเรียนทรัพย์ทวี ภาคเรียนที่ 1 ปีการศึกษา 2569 จำนวน 16 คน ได้มาโดยวิธีการเลือกแบบเจาะจง<br>
+                            <strong>1.3.2 ตัวแปรของการศึกษา:</strong> <br>ตัวแปรอิสระ ได้แก่ รูปแบบการจัดการเรียนรู้แบบร่วมมือเทคนิค STAD และเทคนิคเกมฟิเคชัน <br>ตัวแปรตาม ได้แก่ ผลสัมฤทธิ์ทางการเรียนวิชาคณิตศาสตร์<br>
+                            <strong>1.3.3 ขอบเขตของการศึกษา:</strong> <br>
+                            ขอบเขตด้านเนื้อหา เนื้อหาเรื่อง การวัดน้ำหนัก ประกอบด้วย การบอกน้ำหนักเป็นกิโลกรัมและขีด การบอกน้ำหนักเป็นกิโลกรัมและกรัม ความสัมพันธ์ระหว่างกิโลกรัม กรัม และขีด การวัดและเปรียบเทียบน้ำหนัก การบวกและการลบเกี่ยวกับน้ำหนัก การแก้โจทย์ปัญหาเกี่ยวกับน้ำหนัก ทั้งนี้ เนื้อหาดังกล่าวสอดคล้องกับตัวชี้วัด ค 2.1 ป.2/4 และ ค 2.1 ป.2/5 ตามสาระการเรียนรู้คณิตศาสตร์ระดับชั้นประถมศึกษาปีที่ 2 (กระทรวงศึกษาธิการ, 2560)<br>
+                            ขอบเขตด้านระยะเวลา ดำเนินการศึกษาค้นคว้าในภาคเรียนที่ 1 ปีการศึกษา 2569 เริ่มดำเนินการตั้งแต่วันที่ 11 กรกฎาคม 2569 จนถึง 2 กันยายน 2569 โดยทดสอบก่อนเรียน จำนวน 1 ชั่วโมง ดำเนินการตามแผนการจัดการเรียนรู้ จำนวน 6 แผน ระยะเวลาในการทดลอง จำนวน 12 ชั่วโมง และทดสอบหลังเรียน จำนวน 1 ชั่วโมง รวมทั้งสิ้น 14 ชั่วโมง ดังตาราง
+                            </p>
+                            
+                            <div class="overflow-x-auto rounded-xl border border-gray-200 mb-6 shadow-sm">
+                                <table class="w-full text-sm text-left text-gray-600 font-light">
+                                    <thead class="text-xs text-white uppercase bg-paPrimary">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3 font-medium">การดำเนินการ</th>
+                                            <th scope="col" class="px-6 py-3 font-medium">จำนวน (ชั่วโมง)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200">
+                                        <tr class="bg-white">
+                                            <td class="px-6 py-3 text-gray-900">ทดสอบก่อนเรียน</td>
+                                            <td class="px-6 py-3">1</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="px-6 py-3 text-gray-900">แผนการจัดการเรียนรู้ที่ 1 การบอกน้ำหนักเป็นกิโลกรัมและขีด</td>
+                                            <td class="px-6 py-3">1</td>
+                                        </tr>
+                                        <tr class="bg-white">
+                                            <td class="px-6 py-3 text-gray-900">แผนการจัดการเรียนรู้ที่ 2 การบอกน้ำหนักเป็นกิโลกรัมและกรัม</td>
+                                            <td class="px-6 py-3">1</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="px-6 py-3 text-gray-900">แผนการจัดการเรียนรู้ที่ 3 ความสัมพันธ์ระหว่างกิโลกรัม กรัม และขีด</td>
+                                            <td class="px-6 py-3">2</td>
+                                        </tr>
+                                        <tr class="bg-white">
+                                            <td class="px-6 py-3 text-gray-900">แผนการจัดการเรียนรู้ที่ 4 การวัดและเปรียบเทียบน้ำหนัก</td>
+                                            <td class="px-6 py-3">2</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="px-6 py-3 text-gray-900">แผนการจัดการเรียนรู้ที่ 5 การบวกและการลบเกี่ยวกับน้ำหนัก</td>
+                                            <td class="px-6 py-3">3</td>
+                                        </tr>
+                                        <tr class="bg-white">
+                                            <td class="px-6 py-3 text-gray-900">แผนการจัดการเรียนรู้ที่ 6 การแก้โจทย์ปัญหาเกี่ยวกับน้ำหนัก</td>
+                                            <td class="px-6 py-3">3</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="px-6 py-3 text-gray-900 font-medium">ทดสอบหลังเรียน</td>
+                                            <td class="px-6 py-3 font-medium">1</td>
+                                        </tr>
+                                        <tr class="bg-white text-gray-900 font-medium">
+                                            <td class="px-6 py-3 text-right">รวมทั้งสิ้น</td>
+                                            <td class="px-6 py-3">14</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p class="text-sm text-gray-600 font-light mb-4"><strong>1.3.4 เครื่องมือที่ใช้ในการศึกษา:</strong><br>
+                            เครื่องมือที่ใช้ในการทดลอง ได้แก่ แผนการจัดการเรียนรู้คณิตศาสตร์ เรื่อง การวัดน้ำหนัก ของ โดยใช้รูปแบบการจัดการเรียนรู้แบบร่วมมือเทคนิค STAD ร่วมกับเทคนิคเกมิฟิเคชัน<br>
+                            เครื่องมือที่ใช้เก็บรวบรวมข้อมูล ได้แก่ แบบทดสอบวัดผลสัมฤทธิ์ทางการเรียนเรียน เรื่อง การวัดน้ำหนัก ของนักเรียนชั้นประถมศึกษาปีที่ 2 ข้อสอบแบบปรนัย 3 ตัวเลือก จำนวน 30 ข้อ และแบบประเมินความพึงพอใจของนักเรียนที่มีต่อการเรียนโดยใช้รูปแบบการจัดการเรียนรู้แบบร่วมมือเทคนิค STAD ร่วมกับเทคนิคเกมิฟิเคชัน<br>
+                            <strong>1.3.5 ขั้นตอนการดำเนินการ:</strong>
+                            </p>
+                            <div class="overflow-x-auto rounded-xl border border-gray-200 mb-6 shadow-sm">
+                                <table class="w-full text-sm text-left text-gray-600 font-light">
+                                    <thead class="text-xs text-white uppercase bg-paPrimary">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3 font-medium w-1/4">ขั้นตอน</th>
+                                            <th scope="col" class="px-6 py-3 font-medium w-1/3">การดำเนินการ</th>
+                                            <th scope="col" class="px-6 py-3 font-medium">ผลลัพธ์ที่เกิดขึ้น</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200">
+                                        <tr class="bg-white">
+                                            <td class="px-6 py-3 font-medium text-gray-900">วิเคราะห์สภาพปัญหา</td>
+                                            <td class="px-6 py-3">วิเคราะห์ผลการเรียนรู้และปัญหาการเรียนวิชาคณิตศาสตร์ เรื่อง การวัดน้ำหนัก ของนักเรียนชั้นประถมศึกษาปีที่ 2 จากผลการเรียน การสังเกตพฤติกรรม และการจัดการเรียนรู้ที่ผ่านมา</td>
+                                            <td class="px-6 py-3">พบประเด็นปัญหาด้านความเข้าใจเรื่องหน่วยน้ำหนัก การเปรียบเทียบน้ำหนัก และการนำความรู้ไปใช้แก้โจทย์ปัญหา จึงกำหนดประเด็นในการพัฒนา</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="px-6 py-3 font-medium text-gray-900">ศึกษาแนวคิด เอกสาร และงานวิจัยที่เกี่ยวข้อง</td>
+                                            <td class="px-6 py-3">ศึกษาหลักสูตร ตัวชี้วัด แนวคิดการจัดการเรียนรู้แบบร่วมมือเทคนิค STAD แนวคิด Gamification เอกสาร และงานวิจัยที่เกี่ยวข้องกับการเรียนรู้คณิตศาสตร์ระดับประถมศึกษา</td>
+                                            <td class="px-6 py-3">ได้กรอบแนวคิดและแนวทางในการออกแบบการจัดการเรียนรู้ให้เหมาะสมกับเนื้อหาและระดับชั้น</td>
+                                        </tr>
+                                        <tr class="bg-white">
+                                            <td class="px-6 py-3 font-medium text-gray-900">กำหนดวัตถุประสงค์และกรอบการพัฒนา</td>
+                                            <td class="px-6 py-3">กำหนดวัตถุประสงค์ เป้าหมาย ขอบเขต เนื้อหา ตัวแปร และระยะเวลาในการดำเนินงาน</td>
+                                            <td class="px-6 py-3">ได้กรอบการดำเนินงานที่ชัดเจน และกำหนดผลลัพธ์หลัก ได้แก่ ผลสัมฤทธิ์ทางการเรียนและความพึงพอใจของผู้เรียน</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="px-6 py-3 font-medium text-gray-900">สร้างและพัฒนาเครื่องมือ</td>
+                                            <td class="px-6 py-3">จัดทำแผนการจัดการเรียนรู้ เรื่อง การวัดน้ำหนัก โดยใช้ STAD ร่วมกับ Gamification แบบทดสอบวัดผลสัมฤทธิ์ทางการเรียน และแบบประเมินความพึงพอใจ</td>
+                                            <td class="px-6 py-3">ได้เครื่องมือฉบับร่าง ประกอบด้วย แผนการจัดการเรียนรู้ จำนวน 6 แผน แบบทดสอบ จำนวน 30 ข้อ และแบบประเมินความพึงพอใจ จำนวน 10 ข้อ</td>
+                                        </tr>
+                                        <tr class="bg-white">
+                                            <td class="px-6 py-3 font-medium text-gray-900">ตรวจสอบคุณภาพของเครื่องมือ</td>
+                                            <td class="px-6 py-3">นำแผนการจัดการเรียนรู้ แบบทดสอบวัดผลสัมฤทธิ์ และแบบประเมินความพึงพอใจ เสนอผู้เชี่ยวชาญจำนวน 3 คน เพื่อตรวจสอบความถูกต้อง ความเหมาะสม และความสอดคล้องกับวัตถุประสงค์และเนื้อหา</td>
+                                            <td class="px-6 py-3">ผลการประเมินความเหมาะสมของแผนการจัดการเรียนรู้โดยผู้เชี่ยวชาญ 3 คน มีค่าเฉลี่ย อยู่ในระดับ <br> ผลการประเมินความเที่ยงระหว่างข้อคำถามกับวัตถุประสงค์โดยผู้เชี่ยวชาญ 3 คน มีค่าดัชนีความสอดคล้อง (IOC) อยู่ระหว่าง 0.50 – 1.00 จำนวน 33 ข้อ จาก 40 ข้อ ผู้สอนได้คัดข้อคำถามให้เหลือ30 ข้อ แล้วนำไปจัดทำแบบทดสอบฉบับจริง <br> ผลการประเมินความเที่ยงระหว่างรายการประเมินกับวัตถุประสงค์โดยผู้เชี่ยวชาญ 3 คน มีค่าดัชนีความสอดคล้อง (IOC) อยู่ระหว่าง 0.50 – 1.00 ทุกข้อ</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="px-6 py-3 font-medium text-gray-900">ปรับปรุงเครื่องมือและนำไปใช้จริง</td>
+                                            <td class="px-6 py-3">ปรับปรุงเครื่องมือตามข้อเสนอแนะของผู้เชี่ยวชาญ และจัดเตรียมเครื่องมือสำหรับนำไปใช้กับกลุ่มเป้าหมาย</td>
+                                            <td class="px-6 py-3">ได้เครื่องมือฉบับสมบูรณ์พร้อมนำไปใช้ในการจัดการเรียนรู้</td>
+                                        </tr>
+                                        <tr class="bg-white">
+                                            <td class="px-6 py-3 font-medium text-gray-900">ดำเนินการทดลอง</td>
+                                            <td class="px-6 py-3">ดำเนินการจัดกิจกรรมตามแผนการจัดการเรียนรู้</td>
+                                            <td class="px-6 py-3">นักเรียนได้เรียนรู้ผ่านการทำงานเป็นทีม มีส่วนร่วมในกิจกรรม และมีประสบการณ์การเรียนรู้ตามกระบวนการที่กำหนด</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="px-6 py-3 font-medium text-gray-900">เก็บรวบรวมข้อมูล</td>
+                                            <td class="px-6 py-3">ดำเนินการทดสอบก่อนเรียน ทดสอบหลังเรียน และเก็บข้อมูลจากแบบประเมินความพึงพอใจหลังสิ้นสุดการจัดการเรียนรู้</td>
+                                            <td class="px-6 py-3">ได้ข้อมูลคะแนน ก่อนเรียน–หลังเรียน และข้อมูลความพึงพอใจของนักเรียนครบถ้วน</td>
+                                        </tr>
+                                        <tr class="bg-white">
+                                            <td class="px-6 py-3 font-medium text-gray-900">วิเคราะห์ข้อมูล</td>
+                                            <td class="px-6 py-3">วิเคราะห์ข้อมูลผลสัมฤทธิ์ทางการเรียนโดยใช้ค่าเฉลี่ย ร้อยละ ส่วนเบี่ยงเบนมาตรฐาน และการเปรียบเทียบคะแนนก่อนเรียนและหลังเรียน รวมทั้งวิเคราะห์ความพึงพอใจ</td>
+                                            <td class="px-6 py-3">ได้ผลการวิเคราะห์ข้อมูลที่สามารถนำมาเปรียบเทียบกับเป้าหมายที่กำหนด</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="px-6 py-3 font-medium text-gray-900">สรุปและสะท้อนผลการพัฒนา</td>
+                                            <td class="px-6 py-3">สรุปผลตามวัตถุประสงค์ วิเคราะห์จุดเด่น ปัญหา อุปสรรค และแนวทางพัฒนาการจัดการเรียนรู้ในครั้งต่อไป</td>
+                                            <td class="px-6 py-3">ได้ข้อสรุปเกี่ยวกับประสิทธิผลของการจัดการเรียนรู้ และแนวทางสำหรับพัฒนาผู้เรียนและปรับปรุงการจัดการเรียนรู้ต่อไป</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p class="text-sm text-gray-600 font-light mb-4"><strong>1.3.6 ขั้นตอนการทดลอง:</strong></p>
+                            <div class="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+                                <table class="w-full text-sm text-left text-gray-600 font-light">
+                                    <thead class="text-xs text-white uppercase bg-paPrimary">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3 font-medium w-1/4">ระยะการทดลอง</th>
+                                            <th scope="col" class="px-6 py-3 font-medium">กิจกรรม</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200">
+                                        <tr class="bg-white">
+                                            <td class="px-6 py-4 font-medium text-gray-900">ระยะที่ 1 ก่อนทดลอง</td>
+                                            <td class="px-6 py-4">เตรียมกลุ่มเป้าหมายและชี้แจงวัตถุประสงค์ และแนวทางการจัดกิจกรรมแก่ผู้เรียน เตรียมสื่อ อุปกรณ์ แผนการจัดการเรียนรู้ที่ใช้ในการทดลอง ให้นักเรียนทำ แบบทดสอบวัดผลสัมฤทธิ์ทางการเรียนก่อนเรียน (Pre-test) บันทึกคะแนนก่อนเรียนเป็นข้อมูลพื้นฐานสำหรับเปรียบเทียบผลการเรียนรู้หลังการทดลอง</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="px-6 py-4 font-medium text-gray-900">ระยะที่ 2 ระหว่างทดลอง</td>
+                                            <td class="px-6 py-4">ดำเนินการจัดการเรียนรู้ตามแผน ได้แก่ การนำเสนอเนื้อหา การทำงานเป็นทีม การทดสอบรายบุคคล การคำนวณคะแนนพัฒนาการ และการยกย่องทีม บูรณาการ Gamification ผ่านองค์ประกอบ เช่น คะแนน เหรียญตรา ระดับ ภารกิจ ความท้าทาย และรางวัล ตามที่กำหนดไว้ในแผน เก็บหลักฐานระหว่างการจัดกิจกรรม เช่น ผลงานนักเรียน คะแนนทีม และบันทึกพฤติกรรมที่เกี่ยวข้อง</td>
+                                        </tr>
+                                        <tr class="bg-white">
+                                            <td class="px-6 py-4 font-medium text-gray-900">ระยะที่ 3 หลังทดลอง</td>
+                                            <td class="px-6 py-4">ให้นักเรียนทำ แบบทดสอบวัดผลสัมฤทธิ์ทางการเรียนหลังเรียน (Post-test) ให้นักเรียนตอบ แบบประเมินความพึงพอใจ ต่อการจัดการเรียนรู้ รวบรวม ตรวจสอบ และจัดระบบข้อมูลทั้งหมด เปรียบเทียบผลก่อนเรียนและหลังเรียน และวิเคราะห์ความพึงพอใจของนักเรียน</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- 1.4 -->
+                        <div class="bg-white/60 p-6 rounded-2xl border border-gray-100 hover-lift">
+                            <h5 class="text-lg font-medium text-gray-800 mb-4 flex items-center gap-2">
+                                <i class="ph-light ph-chart-bar text-paPrimary text-2xl"></i> 1.4 การวิเคราะห์ข้อมูล
+                            </h5>
+                            <div class="text-gray-600 space-y-4 text-sm leading-relaxed font-light">
+                                <p>วิเคราะห์หาค่าสถิติพื้นฐาน ได้แก่ ค่าเฉลี่ย ส่วนเบี่ยงเบนมาตรฐาน และร้อยละ<br>
+                                วิเคราะห์เพื่อทดสอบสมมติฐานโดยการทดสอบทีแบบกลุ่มตัวอย่างแบบสัมพันธ์กัน (Dependentt-test) โดยนำเสนอผลการวิเคราะห์ข้อมูลตามลำดับของวัตถุประสงค์ ได้ดังนี้</p>
+                                
+                                <p class="font-medium mt-6 text-gray-800">1.4.1 ผลการวิเคราะห์ข้อมูลการพัฒนาผลสัมฤทธิ์ทางการเรียนวิชาคณิตศาสตร์ เรื่อง การวัดน้ำหนัก ของนักเรียนชั้นประถมศึกษาปีที่ 2 โดยใช้การจัดการเรียนรู้แบบร่วมมือเทคนิค STAD ร่วมกับเทคนิคเกมิฟิเคชัน แสดงดังตาราง</p>
+                                <p class="text-center font-medium">ตาราง ผลการทดสอบก่อนเรียนและหลังเรียน</p>
+                                <div class="overflow-x-auto rounded-xl border border-gray-200 shadow-sm mt-2">
+                                    <table class="w-full text-sm text-center text-gray-600 font-light">
+                                        <thead class="text-xs text-white uppercase bg-paSecondary/80 text-paDark">
+                                            <tr>
+                                                <th scope="col" class="px-6 py-3 font-medium">เลขที่</th>
+                                                <th scope="col" class="px-6 py-3 font-medium">ก่อนเรียน</th>
+                                                <th scope="col" class="px-6 py-3 font-medium">หลังเรียน</th>
+                                                <th scope="col" class="px-6 py-3 font-medium">ผลต่าง</th>
+                                                <th scope="col" class="px-6 py-3 font-medium">ผลการประเมิน</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-200">
+                                            <tr class="bg-white"><td class="px-4 py-2">1</td><td class="px-4 py-2">5</td><td class="px-4 py-2">13</td><td class="px-4 py-2">+8</td><td class="px-4 py-2 text-red-500">ไม่ผ่านเกณฑ์</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-4 py-2">2</td><td class="px-4 py-2">16</td><td class="px-4 py-2">22</td><td class="px-4 py-2">+6</td><td class="px-4 py-2 text-green-600">ผ่านเกณฑ์</td></tr>
+                                            <tr class="bg-white"><td class="px-4 py-2">3</td><td class="px-4 py-2">18</td><td class="px-4 py-2">28</td><td class="px-4 py-2">+10</td><td class="px-4 py-2 text-green-600">ผ่านเกณฑ์</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-4 py-2">4</td><td class="px-4 py-2">15</td><td class="px-4 py-2">27</td><td class="px-4 py-2">+12</td><td class="px-4 py-2 text-green-600">ผ่านเกณฑ์</td></tr>
+                                            <tr class="bg-white"><td class="px-4 py-2">5</td><td class="px-4 py-2">11</td><td class="px-4 py-2">18</td><td class="px-4 py-2">+7</td><td class="px-4 py-2 text-green-600">ผ่านเกณฑ์</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-4 py-2">6</td><td class="px-4 py-2">10</td><td class="px-4 py-2">17</td><td class="px-4 py-2">+7</td><td class="px-4 py-2 text-green-600">ผ่านเกณฑ์</td></tr>
+                                            <tr class="bg-white"><td class="px-4 py-2">7</td><td class="px-4 py-2">14</td><td class="px-4 py-2">25</td><td class="px-4 py-2">+11</td><td class="px-4 py-2 text-green-600">ผ่านเกณฑ์</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-4 py-2">8</td><td class="px-4 py-2">17</td><td class="px-4 py-2">27</td><td class="px-4 py-2">+10</td><td class="px-4 py-2 text-green-600">ผ่านเกณฑ์</td></tr>
+                                            <tr class="bg-white"><td class="px-4 py-2">9</td><td class="px-4 py-2">9</td><td class="px-4 py-2">15</td><td class="px-4 py-2">+6</td><td class="px-4 py-2 text-green-600">ผ่านเกณฑ์</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-4 py-2">10</td><td class="px-4 py-2">12</td><td class="px-4 py-2">23</td><td class="px-4 py-2">+11</td><td class="px-4 py-2 text-green-600">ผ่านเกณฑ์</td></tr>
+                                            <tr class="bg-white"><td class="px-4 py-2">11</td><td class="px-4 py-2">10</td><td class="px-4 py-2">23</td><td class="px-4 py-2">+13</td><td class="px-4 py-2 text-green-600">ผ่านเกณฑ์</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-4 py-2">12</td><td class="px-4 py-2">13</td><td class="px-4 py-2">24</td><td class="px-4 py-2">+11</td><td class="px-4 py-2 text-green-600">ผ่านเกณฑ์</td></tr>
+                                            <tr class="bg-white"><td class="px-4 py-2">13</td><td class="px-4 py-2">13</td><td class="px-4 py-2">22</td><td class="px-4 py-2">+9</td><td class="px-4 py-2 text-green-600">ผ่านเกณฑ์</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-4 py-2">14</td><td class="px-4 py-2">20</td><td class="px-4 py-2">30</td><td class="px-4 py-2">+10</td><td class="px-4 py-2 text-green-600">ผ่านเกณฑ์</td></tr>
+                                            <tr class="bg-white"><td class="px-4 py-2">15</td><td class="px-4 py-2">19</td><td class="px-4 py-2">28</td><td class="px-4 py-2">+9</td><td class="px-4 py-2 text-green-600">ผ่านเกณฑ์</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-4 py-2">16</td><td class="px-4 py-2">3</td><td class="px-4 py-2">10</td><td class="px-4 py-2">+7</td><td class="px-4 py-2 text-red-500">ไม่ผ่านเกณฑ์</td></tr>
+                                            <tr class="bg-paPrimary/10 font-medium text-gray-900"><td class="px-4 py-2">ค่าเฉลี่ย</td><td class="px-4 py-2">12.81</td><td class="px-4 py-2">22.00</td><td class="px-4 py-2">9.19</td><td class="px-4 py-2"></td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p>จากตารางพบว่า นักเรียนชั้นประถมศึกษาปีที่ 2 จำนวน 16 คน มีคะแนนเฉลี่ยก่อนเรียนเท่ากับ 12.81 คะแนน และคะแนนเฉลี่ยหลังเรียนเท่ากับ 22.00 คะแนน โดยมีคะแนนเฉลี่ยเพิ่มขึ้น 9.19 คะแนน เมื่อพิจารณาเป็นรายบุคคล พบว่านักเรียนทุกคนมีคะแนนหลังเรียนสูงกว่าก่อนเรียน โดยมีคะแนนเพิ่มขึ้นระหว่าง 6–13 คะแนน ทั้งนี้ นักเรียนผ่านเกณฑ์การประเมินจำนวน 14 คน คิดเป็นร้อยละ 87.50 และไม่ผ่านเกณฑ์จำนวน 2 คน คิดเป็นร้อยละ 12.50 สะท้อนให้เห็นว่า ภายหลังการจัดการเรียนรู้ นักเรียนส่วนใหญ่มีพัฒนาการด้านผลสัมฤทธิ์ทางการเรียนสูงขึ้น โดยมีการเปลี่ยนแปลงของคะแนนเป็นไปในทิศทางที่ดีขึ้นอย่างทั่วถึงในกลุ่มผู้เรียน</p>
+
+                                <p class="text-center font-medium mt-6">ตาราง ผลการวิเคราะห์ข้อมูลการเปรียบเทียบผลสัมฤทธิ์ทางการเรียนโดยการทดสอบทีแบบกลุ่มตัวอย่างแบบสัมพันธ์กัน (Dependent t-test)</p>
+                                <div class="overflow-x-auto rounded-xl border border-gray-200 shadow-sm mt-2">
+                                    <table class="w-full text-sm text-center text-gray-600 font-light">
+                                        <thead class="text-xs text-white uppercase bg-paSecondary/80 text-paDark">
+                                            <tr>
+                                                <th scope="col" class="px-6 py-3 font-medium" rowspan="2">คะแนน</th>
+                                                <th scope="col" class="px-6 py-3 font-medium" rowspan="2">x̄</th>
+                                                <th scope="col" class="px-6 py-3 font-medium" rowspan="2">N</th>
+                                                <th scope="col" class="px-6 py-3 font-medium" rowspan="2">S.D.</th>
+                                                <th scope="col" class="px-6 py-3 font-medium" rowspan="2">Correlation</th>
+                                                <th scope="col" class="px-6 py-3 font-medium border-b border-white" colspan="5">Dependent t-test</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col" class="px-4 py-2 font-medium">x̄</th>
+                                                <th scope="col" class="px-4 py-2 font-medium">S.D.</th>
+                                                <th scope="col" class="px-4 py-2 font-medium">t</th>
+                                                <th scope="col" class="px-4 py-2 font-medium">df</th>
+                                                <th scope="col" class="px-4 py-2 font-medium">P-value</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-200">
+                                            <tr class="bg-white">
+                                                <td class="px-4 py-3 text-left">ก่อนเรียน</td><td class="px-4 py-3">12.81</td><td class="px-4 py-3">16</td><td class="px-4 py-3">4.78</td><td class="px-4 py-3">.937</td><td class="px-4 py-3">9.19</td><td class="px-4 py-3">2.17</td><td class="px-4 py-3">16.96*</td><td class="px-4 py-3">15</td><td class="px-4 py-3">.000</td>
+                                            </tr>
+                                            <tr class="bg-gray-50">
+                                                <td class="px-4 py-3 text-left">หลังเรียน</td><td class="px-4 py-3">22.00</td><td class="px-4 py-3">16</td><td class="px-4 py-3">5.87</td><td class="px-4 py-3"></td><td class="px-4 py-3"></td><td class="px-4 py-3"></td><td class="px-4 py-3"></td><td class="px-4 py-3"></td><td class="px-4 py-3"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p class="text-xs text-gray-500">*มีนัยสำคัญทางสถิติที่ระดับ .05</p>
+                                <p>จากตารางพบว่า นักเรียนมีคะแนนเฉลี่ยก่อนเรียนเท่ากับ 12.81 คะแนน และหลังเรียนเท่ากับ 22.00 คะแนน โดยมีคะแนนเฉลี่ยเพิ่มขึ้น 9.19 คะแนน ผลการทดสอบแบบกลุ่มตัวอย่างแบบสัมพันธ์กันพบว่า คะแนนก่อนเรียนและหลังเรียนแตกต่างกันอย่างมีนัยสำคัญทางสถิติที่ระดับ .05 (t = 16.96, df = 15, p < .001) แสดงให้เห็นว่าผลสัมฤทธิ์ทางการเรียนของนักเรียนหลังเรียนสูงกว่าก่อนเรียนบรรลุวัตถุประสงค์ที่ตั้งไว้</p>
+
+                                <p class="font-medium mt-8 text-gray-800">1.4.2 ผลการวิเคราะห์ข้อมูลความพึงพอใจของนักเรียนเรียนชั้นประถมศึกษาปีที่ 2 ที่มีต่อการจัดการเรียนรู้แบบร่วมมือเทคนิค STAD ร่วมกับเทคนิคเกมิฟิเคชัน</p>
+                                <p class="text-center font-medium mt-2">ตาราง ผลการประเมินความพึงพอใจของนักเรียนชั้นประถมศึกษาปีที่ 2 จำแนกรายคน</p>
+                                <div class="overflow-x-auto rounded-xl border border-gray-200 shadow-sm mt-2">
+                                    <table class="w-full text-xs text-center text-gray-600 font-light">
+                                        <thead class="text-xs text-white uppercase bg-paSecondary/80 text-paDark">
+                                            <tr>
+                                                <th scope="col" class="px-2 py-2 font-medium border-b border-white border-r" rowspan="2">เลขที่</th>
+                                                <th scope="col" class="px-2 py-2 font-medium border-b border-white" colspan="10">ความพึงพอใจของนักเรียนที่มีต่อการจัดการเรียนรู้</th>
+                                                <th scope="col" class="px-2 py-2 font-medium border-b border-white border-l" rowspan="2">x̄</th>
+                                                <th scope="col" class="px-2 py-2 font-medium border-b border-white" rowspan="2">S.D.</th>
+                                                <th scope="col" class="px-2 py-2 font-medium border-b border-white" rowspan="2">ระดับความพึงพอใจ</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col" class="px-1 py-1 font-medium">1.</th>
+                                                <th scope="col" class="px-1 py-1 font-medium">2.</th>
+                                                <th scope="col" class="px-1 py-1 font-medium">3.</th>
+                                                <th scope="col" class="px-1 py-1 font-medium">4.</th>
+                                                <th scope="col" class="px-1 py-1 font-medium">5.</th>
+                                                <th scope="col" class="px-1 py-1 font-medium">6.</th>
+                                                <th scope="col" class="px-1 py-1 font-medium">7.</th>
+                                                <th scope="col" class="px-1 py-1 font-medium">8.</th>
+                                                <th scope="col" class="px-1 py-1 font-medium">9.</th>
+                                                <th scope="col" class="px-1 py-1 font-medium">10.</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-200">
+                                            <tr class="bg-white"><td class="px-2 py-2 border-r">1</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-2 py-2 border-l">4.90</td><td class="px-2 py-2">0.32</td><td class="px-2 py-2">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-2 py-2 border-r">2</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-2 py-2 border-l">4.80</td><td class="px-2 py-2">0.42</td><td class="px-2 py-2">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-white"><td class="px-2 py-2 border-r">3</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-2 py-2 border-l">4.90</td><td class="px-2 py-2">0.32</td><td class="px-2 py-2">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-2 py-2 border-r">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">3</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-2 py-2 border-l">4.50</td><td class="px-2 py-2">0.71</td><td class="px-2 py-2">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-white"><td class="px-2 py-2 border-r">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-2 py-2 border-l">4.70</td><td class="px-2 py-2">0.48</td><td class="px-2 py-2">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-2 py-2 border-r">6</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-2 py-2 border-l">4.60</td><td class="px-2 py-2">0.52</td><td class="px-2 py-2">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-white"><td class="px-2 py-2 border-r">7</td><td class="px-1 py-2">4</td><td class="px-1 py-2">3</td><td class="px-1 py-2">3</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">4</td><td class="px-2 py-2 border-l">4.10</td><td class="px-2 py-2">0.74</td><td class="px-2 py-2">พึงพอใจมาก</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-2 py-2 border-r">8</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-2 py-2 border-l">4.80</td><td class="px-2 py-2">0.42</td><td class="px-2 py-2">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-white"><td class="px-2 py-2 border-r">9</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">4</td><td class="px-2 py-2 border-l">4.70</td><td class="px-2 py-2">0.48</td><td class="px-2 py-2">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-2 py-2 border-r">10</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">4</td><td class="px-1 py-2">4</td><td class="px-2 py-2 border-l">4.60</td><td class="px-2 py-2">0.52</td><td class="px-2 py-2">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-white"><td class="px-2 py-2 border-r">11</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-2 py-2 border-l">4.90</td><td class="px-2 py-2">0.32</td><td class="px-2 py-2">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-2 py-2 border-r">12</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-2 py-2 border-l">4.70</td><td class="px-2 py-2">0.48</td><td class="px-2 py-2">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-white"><td class="px-2 py-2 border-r">13</td><td class="px-1 py-2">4</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">4</td><td class="px-2 py-2 border-l">4.50</td><td class="px-2 py-2">0.53</td><td class="px-2 py-2">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-2 py-2 border-r">14</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-2 py-2 border-l">4.90</td><td class="px-2 py-2">0.32</td><td class="px-2 py-2">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-white"><td class="px-2 py-2 border-r">15</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-2 py-2 border-l">4.70</td><td class="px-2 py-2">0.48</td><td class="px-2 py-2">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-2 py-2 border-r">16</td><td class="px-1 py-2">5</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-1 py-2">4</td><td class="px-1 py-2">5</td><td class="px-2 py-2 border-l">4.50</td><td class="px-2 py-2">0.53</td><td class="px-2 py-2">พึงพอใจมากที่สุด</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <p class="text-center font-medium mt-6">ตาราง สรุปผลการประเมินความพึงพอใจของนักเรียนชั้นประถมศึกษาปีที่ 2</p>
+                                <div class="overflow-x-auto rounded-xl border border-gray-200 shadow-sm mt-2">
+                                    <table class="w-full text-sm text-left text-gray-600 font-light">
+                                        <thead class="text-xs text-white uppercase bg-paSecondary/80 text-paDark text-center">
+                                            <tr>
+                                                <th scope="col" class="px-6 py-3 font-medium" rowspan="2">รายการประเมิน</th>
+                                                <th scope="col" class="px-6 py-3 font-medium border-b border-white" colspan="2">ผลการประเมิน</th>
+                                                <th scope="col" class="px-6 py-3 font-medium" rowspan="2">ระดับความคิดพึงพอใจ</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col" class="px-4 py-2 font-medium">x̄</th>
+                                                <th scope="col" class="px-4 py-2 font-medium">S.D.</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-200 text-center">
+                                            <tr class="bg-white"><td class="px-6 py-3 text-left">ฉันสนุกและมีความสุขเมื่อได้เรียนด้วยกิจกรรมนี้</td><td class="px-4 py-3">4.88</td><td class="px-4 py-3">0.34</td><td class="px-6 py-3">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-6 py-3 text-left">ฉันชอบการทำงานร่วมกับเพื่อนเป็นทีมในการเรียน</td><td class="px-4 py-3">4.63</td><td class="px-4 py-3">0.62</td><td class="px-6 py-3">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-white"><td class="px-6 py-3 text-left">ฉันได้ช่วยเพื่อนและได้รับความช่วยเหลือจากเพื่อนในการเรียน</td><td class="px-4 py-3">4.63</td><td class="px-4 py-3">0.62</td><td class="px-6 py-3">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-6 py-3 text-left">ฉันชอบการร่วมกิจกรรมและทำงานตามหน้าที่ของสมาชิกในทีม</td><td class="px-4 py-3">4.50</td><td class="px-4 py-3">0.63</td><td class="px-6 py-3">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-white"><td class="px-6 py-3 text-left">ฉันชอบกิจกรรมเกมที่นำมาใช้ในการเรียน</td><td class="px-4 py-3">4.81</td><td class="px-4 py-3">0.40</td><td class="px-6 py-3">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-6 py-3 text-left">ฉันชอบการสะสมคะแนนหรือแต้มจากการร่วมกิจกรรมการเรียนรู้</td><td class="px-4 py-3">4.75</td><td class="px-4 py-3">0.45</td><td class="px-6 py-3">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-white"><td class="px-6 py-3 text-left">ฉันรู้สึกท้าทายและอยากพยายามทำกิจกรรมให้สำเร็จ</td><td class="px-4 py-3">4.63</td><td class="px-4 py-3">0.50</td><td class="px-6 py-3">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-6 py-3 text-left">กิจกรรมทำให้ฉันกล้าแสดงความคิดเห็นและตอบคำถามมากขึ้น</td><td class="px-4 py-3">4.69</td><td class="px-4 py-3">0.48</td><td class="px-6 py-3">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-white"><td class="px-6 py-3 text-left">กิจกรรมทำให้ฉันอยากเรียนรู้และค้นหาคำตอบด้วยตนเอง</td><td class="px-4 py-3">4.50</td><td class="px-4 py-3">0.52</td><td class="px-6 py-3">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-gray-50"><td class="px-6 py-3 text-left">โดยรวมแล้ว ฉันพอใจและอยากเรียนด้วยกิจกรรมรูปแบบนี้อีก</td><td class="px-4 py-3">4.75</td><td class="px-4 py-3">0.45</td><td class="px-6 py-3">พึงพอใจมากที่สุด</td></tr>
+                                            <tr class="bg-paPrimary/10 font-medium text-gray-900"><td class="px-6 py-3 text-right">ผลรวม</td><td class="px-4 py-3">4.68</td><td class="px-4 py-3">0.21</td><td class="px-6 py-3">พึงพอใจมากที่สุด</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p>จากตารางพบว่า นักเรียนชั้นประถมศึกษาปีที่ 2 มีความพึงพอใจต่อการจัดการเรียนรู้แบบร่วมมือเทคนิค STAD ร่วมกับเทคนิคเกมิฟิเคชัน โดยรวมอยู่ในระดับพึงพอใจมากที่สุด (x̄ = 4.68, S.D. = 0.21)โดยทุกรายการมีระดับความพึงพอใจอยู่ในระดับมากที่สุด มีค่าเฉลี่ยระหว่าง 4.50–4.88 ทั้งนี้ รายการที่มีค่าเฉลี่ยสูงสุด คือ นักเรียนสนุกและมีความสุขเมื่อได้เรียนด้วยกิจกรรมนี้ (x̄ = 4.88, S.D. = 0.34) รองลงมา คือ นักเรียนชอบกิจกรรมเกมที่นำมาใช้ในการเรียน (x̄ = 4.81, S.D. = 0.40) ทั้งนี้ สะท้อนให้เห็นว่านักเรียนมีความพึงพอใจต่อการจัดการเรียนรู้ในภาพรวมอยู่ในระดับสูงมาก</p>
+
+                            </div>
+                        </div>
+
+                        <!-- 1.5 -->
+                        <div class="bg-white/60 p-6 rounded-2xl border border-gray-100 hover-lift">
+                            <h5 class="text-lg font-medium text-gray-800 mb-3 flex items-center gap-2">
+                                <i class="ph-light ph-lightbulb text-paAccent2 text-2xl"></i> 1.5 สรุปและอภิปรายผล
+                            </h5>
+                            <div class="text-sm text-gray-600 font-light leading-relaxed space-y-4">
+                                <div>
+                                    <h6 class="font-medium text-gray-800">สรุปผล</h6>
+                                    <ul class="space-y-2 list-none pl-4 mt-2">
+                                        <li class="flex gap-2"><i class="ph-light ph-check text-paAccent2 mt-0.5 shrink-0"></i> 1) นักเรียนชั้นประถมศึกษาปีที่ 2 มีสัมฤทธิ์ทางการเรียนวิชาคณิตศาสตร์ เรื่อง การวัดน้ำหนัก โดยใช้การจัดการเรียนรู้แบบร่วมมือเทคนิค STAD ร่วมกับเทคนิคเกมิฟิเคชันหลังเรียนสูงกว่าก่อนเรียนอย่างมีนัยสำคัญทางสถิติที่ระดับ .05 (t = 16.96, p < .001)</li>
+                                        <li class="flex gap-2"><i class="ph-light ph-check text-paAccent2 mt-0.5 shrink-0"></i> 2) นักเรียนเรียนชั้นประถมศึกษาปีที่ 2 มีความพึงพอใจต่อการจัดการเรียนรู้วิชาคณิตศาสตร์ เรื่อง การวัดน้ำหนัก โดยใช้การจัดการเรียนรู้แบบร่วมมือเทคนิค STAD ร่วมกับเทคนิคเกมิฟิเคชัน โดยรวมอยู่ในระดับพึงพอใจมากที่สุด (x̄ = 4.68, S.D. = 0.21)</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h6 class="font-medium text-gray-800">อภิปรายผล</h6>
+                                    <p class="indent-8 mt-2">ผลการดำเนินงานพบว่า นักเรียนมีผลสัมฤทธิ์ทางการเรียน เรื่อง การวัดน้ำหนัก สูงขึ้นหลังได้รับการจัดการเรียนรู้แบบร่วมมือเทคนิค STAD ร่วมกับเทคนิคเกมมิฟิเคชัน เนื่องจากการจัดการเรียนรู้แบบ STAD เปิดโอกาสให้นักเรียนได้ร่วมมือ ช่วยเหลือ และทบทวนความรู้ร่วมกัน ขณะที่เกมมิฟิเคชันช่วยเพิ่มแรงจูงใจและความท้าทายผ่านคะแนน เหรียญตรา ภารกิจ และรางวัล สอดคล้องกับแนวคิดของ Slavin (1995, อ้างถึงใน ชัยวัฒน์ สุทธิรัตน์, 2553) และ Deterding และคณะ (2011, อ้างถึงใน แสงเพ็ชร พระฉาย, สายสุนีย์ จับโจร, และ อรัญ ซุยกระเดื่อง, 2561) รวมทั้งสอดคล้องกับผลการศึกษาของ ทอฝัน แววกระโทก และ ผดุง เพชรสุข (2565) และ สุภาพร วรรณใส และ อัมพร วัจนะ (2569) ที่พบว่า การจัดการเรียนรู้แบบร่วมมือร่วมกับองค์ประกอบของเกมสามารถส่งเสริมผลสัมฤทธิ์ทางการเรียนได้</p>
+                                    <p class="indent-8">นอกจากนี้ นักเรียนมีความพึงพอใจต่อการจัดการเรียนรู้โดยรวมอยู่ในระดับ มากที่สุด เนื่องจากกิจกรรมเปิดโอกาสให้นักเรียนได้เรียนรู้และทำงานร่วมกับเพื่อน ควบคู่กับการใช้คะแนน ภารกิจ ความท้าทาย และรางวัล ทำให้บรรยากาศการเรียนรู้มีความสนุก น่าสนใจ และกระตุ้นให้นักเรียนมีส่วนร่วมมากขึ้น ซึ่งสอดคล้องกับผลการศึกษาของ ทอฝัน แววกระโทก และ ผดุง เพชรสุข (2565) และ สุภาพร วรรณใส และ อัมพร วัจนะ (2569) ที่พบว่านักเรียนมีความพึงพอใจหรือแรงจูงใจต่อการจัดการเรียนรู้ในระดับสูง</p>
+                                    <p class="indent-8">ดังนั้น การจัดการเรียนรู้แบบร่วมมือเทคนิค STAD ร่วมกับเทคนิคเกมมิฟิเคชันจึงสามารถส่งเสริมทั้ง ผลสัมฤทธิ์ทางการเรียนและความพึงพอใจของนักเรียน ได้ตามวัตถุประสงค์ที่กำหนดไว้ โดยมีจุดเด่นอยู่ที่การผสมผสานการเรียนรู้ร่วมกันกับกิจกรรมที่สร้างความท้าทายและแรงจูงใจให้ผู้เรียนอย่างเหมาะสม</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. ผลลัพธ์การเรียนรู้ -->
+                <div class="mt-16">
+                    <h4 class="text-2xl font-medium text-paAccent2 mb-6 flex items-center gap-2 border-b border-gray-200 pb-2">
+                        <i class="ph-light ph-trophy"></i> 2. ผลลัพธ์การเรียนรู้ของผู้เรียนที่คาดหวัง
+                    </h4>
+
+                    <!-- 2.1 เชิงปริมาณ -->
+                    <div class="mb-10">
+                        <h5 class="text-lg font-medium text-gray-800 mb-4 inline-block bg-paSecondary/50 px-4 py-1.5 rounded-full shadow-sm">2.1 เชิงปริมาณ</h5>
+                        <div class="overflow-x-auto rounded-xl shadow-soft">
+                            <table class="w-full text-sm text-left">
+                                <thead class="text-gray-800 font-medium bg-gray-100">
+                                    <tr>
+                                        <th class="px-6 py-4 rounded-tl-xl w-1/2 bg-gray-100/80 border-b border-gray-200">ผลลัพธ์เชิงปริมาณที่คาดหวัง</th>
+                                        <th class="px-6 py-4 rounded-tr-xl w-1/2 bg-paSecondary/30 border-b border-paSecondary">ผลลัพธ์ที่เกิดขึ้นจริง</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white font-light text-gray-600 divide-y divide-gray-100">
+                                    <tr class="hover:bg-gray-50/50">
+                                        <td class="px-6 py-4">ร้อยละ 80 ของนักเรียนชั้นประถมศึกษาปีที่ 2 มีผลสัมฤทธิ์ทางการเรียนวิชาคณิตศาสตร์ เรื่อง การวัดน้ำหนัก หลังได้รับการจัดการเรียนรู้แบบร่วมมือเทคนิค STAD ร่วมกับเทคนิคเกมิฟิเคชัน ไม่น้อยกว่าร้อยละ 50 ของคะแนนเต็ม</td>
+                                        <td class="px-6 py-4 bg-green-50/20">
+                                            นักเรียนชั้นประถมศึกษาปีที่ 2 จำนวน 16 คน มีผลสัมฤทธิ์ทางการเรียนวิชาคณิตศาสตร์ เรื่อง การวัดน้ำหนัก หลังได้รับการจัดการเรียนรู้แบบร่วมมือเทคนิค STAD ร่วมกับเทคนิคเกมิฟิเคชัน ไม่น้อยกว่าร้อยละ 50 ของคะแนนเต็ม จำนวน 14 คน คิดเป็นร้อยละ 87.50 ซึ่งปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            <div class="mt-3 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm w-fit">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50/50">
+                                        <td class="px-6 py-4">ร้อยละ 80 ของนักเรียนชั้นประถมศึกษาปีที่ 2 มีผลสัมฤทธิ์ทางการเรียนวิชาคณิตศาสตร์ เรื่อง การวัดน้ำหนัก หลังเรียนสูงกว่าก่อนเรียน</td>
+                                        <td class="px-6 py-4 bg-green-50/20">
+                                            นักเรียนชั้นประถมศึกษาปีที่ 2 จำนวน 16 คน มีผลสัมฤทธิ์ทางการเรียนวิชาคณิตศาสตร์ เรื่อง การวัดน้ำหนัก หลังเรียนสูงกว่าก่อนเรียน จำนวน 16 คน คิดเป็นร้อยละ 100 ซึ่งปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            <div class="mt-3 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm w-fit">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50/50">
+                                        <td class="px-6 py-4">ร้อยละ 80 ของนักเรียนชั้นประถมศึกษาปีที่ 2 มีความพึงพอใจต่อการจัดการเรียนรู้แบบร่วมมือเทคนิค STAD ร่วมกับเทคนิคเกมิฟิเคชันโดยรวมอยู่ในระดับ มากขึ้นไป</td>
+                                        <td class="px-6 py-4 bg-green-50/20">
+                                            นักเรียนชั้นประถมศึกษาปีที่ 2 จำนวน 16 คน มีความพึงพอใจต่อการจัดการเรียนรู้แบบร่วมมือเทคนิค STAD ร่วมกับเทคนิคเกมิฟิเคชันโดยรวมอยู่ในระดับ มากขึ้นไป จำนวน 16 คน คิดเป็นร้อยละ 100 ซึ่งปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            <div class="mt-3 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm w-fit">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 2.2 เชิงคุณภาพ -->
+                    <div>
+                        <h5 class="text-lg font-medium text-gray-800 mb-4 inline-block bg-paBg px-4 py-1.5 rounded-full shadow-sm border border-paSecondary/50">2.2 เชิงคุณภาพ</h5>
+                        <div class="overflow-x-auto rounded-xl shadow-soft">
+                            <table class="w-full text-sm text-left">
+                                <thead class="text-gray-800 font-medium bg-gray-100">
+                                    <tr>
+                                        <th class="px-6 py-4 rounded-tl-xl w-1/2 bg-gray-100/80 border-b border-gray-200">ผลลัพธ์เชิงคุณภาพที่คาดหวัง</th>
+                                        <th class="px-6 py-4 rounded-tr-xl w-1/2 bg-[#fbebf4] border-b border-[#fbebf4]">ผลลัพธ์ที่เกิดขึ้นจริง</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white font-light text-gray-600 divide-y divide-gray-100">
+                                    <tr class="hover:bg-gray-50/50">
+                                        <td class="px-6 py-4">นักเรียนมีความรู้และความเข้าใจเกี่ยวกับการวัดน้ำหนัก สามารถเลือกใช้หน่วยน้ำหนัก อ่าน และเปรียบเทียบน้ำหนักของสิ่งของได้อย่างถูกต้อง โดยมีผลการประเมินอยู่ในระดับคุณภาพ ดีขึ้นไป</td>
+                                        <td class="px-6 py-4 bg-green-50/20">
+                                            ผลการประเมินพบว่า นักเรียนมีความรู้และความเข้าใจเกี่ยวกับการวัดน้ำหนัก สามารถเลือกใช้หน่วยน้ำหนัก อ่าน และเปรียบเทียบน้ำหนักของสิ่งของได้ถูกต้อง โดยภาพรวมมีผลการประเมินอยู่ในระดับคุณภาพ ดีมาก ซึ่งปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            <div class="mt-3 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm w-fit">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50/50">
+                                        <td class="px-6 py-4">นักเรียนมีความกระตือรือร้นในการเรียนรู้ มีส่วนร่วมในกิจกรรม และมีความพยายามในการทำงานให้บรรลุเป้าหมายของทีม โดยมีผลการประเมินพฤติกรรมในระดับคุณภาพ ดีมาก</td>
+                                        <td class="px-6 py-4 bg-green-50/20">
+                                            จากการสังเกตและประเมินพฤติกรรมระหว่างการจัดกิจกรรม พบว่า นักเรียนมีความกระตือรือร้น เข้าร่วมกิจกรรมอย่างต่อเนื่อง ให้ความร่วมมือกับสมาชิกในทีม และมีความพยายามในการทำงานให้บรรลุเป้าหมาย โดยมีผลการประเมินโดยรวมอยู่ในระดับคุณภาพ ดีมาก ซึ่งปฏิบัติได้ตามระดับที่คาดหวัง
+                                            <div class="mt-3 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm w-fit">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้ตามระดับที่คาดหวัง
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50/50">
+                                        <td class="px-6 py-4">นักเรียนแสดงความรู้สึกเชิงบวกต่อการเรียนคณิตศาสตร์ รู้สึกสนุกและสนใจในการทำกิจกรรม และเห็นว่าการใช้คะแนน ภารกิจ ความท้าทาย และรางวัลช่วยให้การเรียนรู้มีความน่าสนใจมากขึ้น โดยมีความพึงพอใจโดยรวมอยู่ในระดับ มาก</td>
+                                        <td class="px-6 py-4 bg-green-50/20">
+                                            ผลการประเมินความพึงพอใจและการสะท้อนความคิดเห็นของนักเรียน พบว่า นักเรียนมีความรู้สึกเชิงบวกต่อการเรียนคณิตศาสตร์ รู้สึกสนุกและสนใจในการทำกิจกรรม และเห็นว่าองค์ประกอบของเกมมิฟิเคชันช่วยให้การเรียนรู้มีความน่าสนใจและกระตุ้นให้ต้องการมีส่วนร่วมมากขึ้น โดยมีความพึงพอใจโดยรวมอยู่ในระดับ มากที่สุด ซึ่งปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            <div class="mt-3 inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 border border-green-200 text-green-700 text-xs rounded-full font-medium shadow-sm w-fit">
+                                                <i class="ph-light ph-check-circle text-sm"></i> ปฏิบัติได้สูงกว่าระดับที่คาดหวัง
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evidence Button for Part 2 -->
+                <div class="mt-12 flex justify-center">
+                    <button onclick="openEvidenceModal(['ใส่_ID_ภาพที่1', 'ใส่_ID_ภาพที่2', 'ใส่_ID_ภาพที่3'])" class="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-paPrimary text-white hover:bg-[#3bb5c3] transition-all shadow-glow hover:-translate-y-1 font-medium group text-lg">
+                        <i class="ph ph-images text-2xl group-hover:scale-110 transition-transform"></i>
+                        ดูภาพหลักฐานส่วนที่ 2
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="conclusion" class="mb-24" data-aos="zoom-in">
+            <div class="glass-card rounded-3xl p-8 md:p-12 text-center max-w-4xl mx-auto shadow-2xl relative overflow-hidden">
+                <!-- BG Elements -->
+                <div class="absolute -top-24 -right-24 w-48 h-48 bg-paPrimary opacity-10 rounded-full blur-2xl"></div>
+                <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-paAccent2 opacity-10 rounded-full blur-2xl"></div>
+
+                <div class="bg-paSecondary/30 p-6 rounded-2xl border border-paSecondary inline-block mb-10 w-full relative z-10 shadow-sm">
+                    <p class="text-gray-800 italic font-medium text-lg">
+                        "ข้าพเจ้าขอรับรองว่า รายงานผลการปฏิบัติงานตามข้อตกลง ประจำปีงบประมาณ 2569 <br class="hidden md:block"> ระหว่างวันที่ 17 เดือนกรกฎาคม พ.ศ. 2569 ถึงวันที่ 30 เดือนกันยายน พ.ศ. 2569 ฉบับนี้เป็นความจริงทุกประการ"
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8 border-t border-gray-200 relative z-10">
+                    <!-- Reporter Signature -->
+                    <div class="flex flex-col items-center">
+                        <div class="w-48 border-b border-gray-400 border-dashed mb-3 h-8"></div>
+                        <p class="font-medium text-gray-900 text-lg">(นายนิติพงศ์ คงทอง)</p>
+                        <p class="text-sm text-gray-500 font-light mt-1">ผู้รายงาน</p>
+                        <p class="text-sm text-gray-500 font-light">ตำแหน่ง ครู ไม่มีวิทยฐานะ</p>
+                        <p class="text-xs text-gray-400 mt-3 font-light">วันที่ 30 เดือน กันยายน พ.ศ. 2569</p>
+                    </div>
+
+                    <!-- Certifier Signature -->
+                    <div class="flex flex-col items-center">
+                        <div class="w-48 border-b border-gray-400 border-dashed mb-3 h-8"></div>
+                        <p class="font-medium text-gray-900 text-lg">(........................................................)</p>
+                        <p class="text-sm text-gray-500 font-light mt-1">ผู้รับรองรายงาน</p>
+                        <p class="text-sm text-gray-500 font-light">ตำแหน่ง ..................................................</p>
+                        <p class="text-xs text-gray-400 mt-3 font-light">วันที่ 30 เดือน กันยายน พ.ศ. 2569</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-8 text-center text-sm text-gray-500 font-light">
+        <p>&copy; 2569 นายนิติพงศ์ คงทอง | โรงเรียนทรัพย์ทวี</p>
+        <p class="mt-1">รายงานผลการปฏิบัติงานตามข้อตกลงในการพัฒนางาน (PA)</p>
+    </footer>
+
+    <!-- Evidence Modal (Carousel) -->
+    <div id="evidenceModal" class="hidden fixed inset-0 z-[100] flex items-center justify-center">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="closeEvidenceModal()"></div>
+        
+        <!-- Modal Content -->
+        <div class="bg-white/5 rounded-2xl w-[95%] max-w-5xl h-[85vh] flex flex-col relative z-10 transform scale-95 transition-transform duration-300" id="modalContainer">
+            
+            <!-- Close Button -->
+            <button onclick="closeEvidenceModal()" class="absolute -top-12 right-0 md:-right-12 p-2 rounded-full text-white/70 hover:text-white hover:bg-white/20 transition-colors z-[110]">
+                <i class="ph-light ph-x text-3xl"></i>
+            </button>
+
+            <!-- Body / Image Carousel -->
+            <div class="flex-1 overflow-hidden relative flex items-center justify-center">
+                
+                <!-- Left Arrow -->
+                <button id="prevBtn" onclick="changeImage(-1)" class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 p-3 md:p-4 rounded-full bg-black/50 text-white hover:bg-paPrimary transition-colors z-20 hidden backdrop-blur-md">
+                    <i class="ph-bold ph-caret-left text-xl md:text-2xl"></i>
+                </button>
+                
+                <!-- Main Image -->
+                <div class="relative w-full h-full flex items-center justify-center p-4">
+                    <img id="modalMainImage" src="" alt="Evidence" class="max-w-full max-h-full object-contain cursor-zoom-in drop-shadow-2xl transition-opacity duration-300" onclick="openLightbox(this.src)">
+                </div>
+
+                <!-- Right Arrow -->
+                <button id="nextBtn" onclick="changeImage(1)" class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 p-3 md:p-4 rounded-full bg-black/50 text-white hover:bg-paPrimary transition-colors z-20 hidden backdrop-blur-md">
+                    <i class="ph-bold ph-caret-right text-xl md:text-2xl"></i>
+                </button>
+                
+                <!-- Image Counter -->
+                <div id="imageCounter" class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-md text-white px-4 py-1.5 rounded-full text-sm font-medium tracking-widest hidden">
+                    1 / 3
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Fullscreen Lightbox -->
+    <div id="imageLightbox" class="hidden fixed inset-0 z-[200] bg-black/95 flex items-center justify-center cursor-zoom-out transition-opacity duration-300 opacity-0" onclick="closeLightbox()">
+        <button class="absolute top-4 right-4 text-white hover:text-gray-300 p-2 z-[210]">
+            <i class="ph-light ph-x text-3xl"></i>
+        </button>
+        <img id="lightboxImg" src="" alt="Zoomed Evidence" class="max-w-[95vw] max-h-[95vh] object-contain rounded-md shadow-2xl transform scale-95 transition-transform duration-300">
+    </div>
+
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            once: true,
+            offset: 50,
+        });
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md', 'bg-white/95');
+                navbar.classList.remove('glass-card');
+            } else {
+                navbar.classList.remove('shadow-md', 'bg-white/95');
+                navbar.classList.add('glass-card');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                menu.classList.add('hidden'); // Close mobile menu on click
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Evidence Modal (Carousel) Logic
+        const modal = document.getElementById('evidenceModal');
+        const modalContainer = document.getElementById('modalContainer');
+        const body = document.body;
+        
+        let currentEvidenceImages = [];
+        let currentImageIndex = 0;
+
+        function openEvidenceModal(imageIds) {
+            // Check if array is empty or contains placeholders
+            if (!imageIds || imageIds.length === 0 || imageIds[0] === 'ใส่_ID_ภาพที่1') {
+                // Default Placeholder for Demonstration
+                currentEvidenceImages = [
+                    'https://placehold.co/800x600/48CAD9/ffffff?text=Evidence+Image+1+(Placeholder)',
+                    'https://placehold.co/800x600/DA329F/ffffff?text=Evidence+Image+2+(Placeholder)',
+                    'https://placehold.co/800x600/D7D63E/333333?text=Evidence+Image+3+(Placeholder)'
+                ];
+            } else {
+                // Construct Google Drive URLs from IDs
+                currentEvidenceImages = imageIds.map(id => `https://drive.google.com/uc?id=${id}`);
+            }
+            
+            currentImageIndex = 0;
+            updateModalView();
+
+            modal.classList.remove('hidden');
+            body.classList.add('modal-open');
+            // Slight delay for animation effect
+            setTimeout(() => {
+                modalContainer.classList.remove('scale-95');
+                modalContainer.classList.add('scale-100');
+            }, 10);
+        }
+
+        function updateModalView() {
+            const imgElement = document.getElementById('modalMainImage');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const counter = document.getElementById('imageCounter');
+
+            // Quick fade effect
+            imgElement.style.opacity = 0;
+            setTimeout(() => {
+                imgElement.src = currentEvidenceImages[currentImageIndex];
+                imgElement.style.opacity = 1;
+            }, 150);
+
+            if (currentEvidenceImages.length > 1) {
+                prevBtn.classList.remove('hidden');
+                nextBtn.classList.remove('hidden');
+                counter.classList.remove('hidden');
+                counter.textContent = `${currentImageIndex + 1} / ${currentEvidenceImages.length}`;
+            } else {
+                prevBtn.classList.add('hidden');
+                nextBtn.classList.add('hidden');
+                counter.classList.add('hidden');
+            }
+        }
+
+        function changeImage(step) {
+            currentImageIndex += step;
+            if (currentImageIndex < 0) {
+                currentImageIndex = currentEvidenceImages.length - 1; // Loop to end
+            } else if (currentImageIndex >= currentEvidenceImages.length) {
+                currentImageIndex = 0; // Loop to start
+            }
+            updateModalView();
+        }
+
+        function closeEvidenceModal() {
+            modalContainer.classList.remove('scale-100');
+            modalContainer.classList.add('scale-95');
+            // Wait for animation to finish before hiding
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                body.classList.remove('modal-open');
+                document.getElementById('modalMainImage').src = ''; // Clear image to stop loading
+            }, 300);
+        }
+
+        // Lightbox Zoom Logic (For zooming in on the modal image)
+        const lightbox = document.getElementById('imageLightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+
+        function openLightbox(src) {
+            event.stopPropagation();
+            
+            lightboxImg.src = src;
+            lightbox.classList.remove('hidden');
+            
+            // Trigger animation
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+                lightbox.classList.add('opacity-100');
+                lightboxImg.classList.remove('scale-95');
+                lightboxImg.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('opacity-100');
+            lightbox.classList.add('opacity-0');
+            lightboxImg.classList.remove('scale-100');
+            lightboxImg.classList.add('scale-95');
+            
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                lightboxImg.src = ''; // Clear source
+            }, 300);
+        }
+    </script>
+</body>
+</html>
